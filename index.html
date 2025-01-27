@@ -1,34 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Project</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="Style/index.css">
 </head>
+
 <body>
-    <header class="bg-gray-800 text-white p-4">
-        <img src="assets/images/logo-white.png" alt="Logo" class="h-8">
-        <nav>
-            <ul class="flex space-x-4 bg-red-600">
-                <li><a href="index.html" class="hover:text-gray-400">Home</a></li>
-                <li><a href="about.html" class="hover:text-gray-400">About</a></li>
-                <li><a href="blog.html" class="hover:text-gray-400">Blog</a></li>
-                <li><a href="contact.html" class="hover:text-gray-400">Contact</a></li>
-                <li><a href="services.html" class="hover:text-gray-400">Services</a></li>
-                <li><a href="portfolio.html" class="hover:text-gray-400">Portfolio</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main class="container mx-auto p-4">
-        <h1 class="text-3xl font-bold">Welcome to Our Project</h1>
-        <p class="mt-4">This is the homepage of our project. Here you can find information about what we do and our services.</p>
-    </main>
-    <footer class="bg-gray-800 text-white p-4 text-center">
-        <p>&copy; 2023 Project Name. All rights reserved.</p>
-    </footer>
+    <!-- Navbar -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-sm z-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="/">
+                        <span class="text-5xl font-bold cursor-pointer text-primary">
+                            <img src="assets/images/logo.png" class="mt-2 h-auto w-20 object-cover" />
+                        </span>
+                    </a>
+                </div>
+
+                <div class="flex items-center space-x-8">
+                    <a href="/" class="text-gray-400 font-semibold hover:font-bold transition duration-300">Home</a>
+                    <a href="/about" class="text-gray-400 font-semibold hover:text-[#1bce8c] transition duration-300">About</a>
+                    <a href="/services" class="text-gray-400 font-semibold hover:text-[#1bce8c] transition duration-300">Services</a>
+                    <a href="/work" class="text-gray-400 font-semibold hover:text-[#1bce8c] transition duration-300">Portfolio</a>
+                    <a href="/blog" class="text-gray-400 font-semibold hover:text-[#1bce8c] transition duration-300">Blogs</a>
+                    <a href="/career" class="text-gray-400 font-semibold hover:text-[#1bce8c] transition duration-300">Careers</a>
+
+                    <a href="/contact">
+                        <button
+                        type="submit"
+                        class="flex justify-center gap-2 items-center mx-auto shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-emerald-500 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group"
+                      >
+                        Get in touch
+                        <svg
+                          class="w-8 h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-50 ease-linear duration-300 rounded-full border border-gray-700 group-hover:border-none p-2 rotate-45"
+                          viewBox="0 0 16 19"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+                            class="fill-gray-800 group-hover:fill-gray-800"
+                          />
+                        </svg>
+                      </button>
+                      
+                    </a>
+                </div>
+
+                <!-- Hamburger Menu -->
+                <button id="hamburgerBtn" class="md:hidden  text-gray-700">
+                    <span>hel</span>
+                    <!-- <svg id="hamburgerIcon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" class="lucide lucide-menu" viewBox="0 0 24 24">
+                        <path d="M3 6h18M3 12h18M3 18h18"></path>
+                    </svg>
+                    <svg id="closeIcon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" class="lucide lucide-x hidden" viewBox="0 0 24 24">
+                        <path d="M6 18L18 6M6 6l12 12"></path>
+                    </svg> -->
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:block hidden border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 bg-white">
+                <a href="/" class="block px-3 py-2 text-primary font-semibold hover:text-black transition duration-300">Home</a>
+                <a href="/about" class="block px-3 py-2 text-gray-700 font-semibold hover:text-black transition duration-300">About</a>
+                <a href="/services" class="block px-3 py-2 text-gray-700 font-semibold hover:text-black transition duration-300">Services</a>
+                <a href="/work" class="block px-3 py-2 text-gray-700 font-semibold hover:text-black transition duration-300">Portfolio</a>
+                <a href="/blog" class="block px-3 py-2 text-gray-700 font-semibold hover:text-black transition duration-300">Blogs</a>
+                <a href="/career" class="block px-3 py-2 text-gray-700 font-semibold hover:text-black transition duration-300">Careers</a>
+
+                <div class="px-3 py-2">
+                    <a href="/contact">
+                        <button type="submit" class="flex justify-center gap-2 items-center mx-auto shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-emerald-500 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group">
+                            Get in touch
+                            <svg class="w-8 h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-50 ease-linear duration-300 rounded-full border border-gray-700 group-hover:border-none p-2 rotate-45" viewBox="0 0 16 19">
+                                <path d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z" class="fill-gray-800 group-hover:fill-gray-800"/>
+                            </svg>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
     <script src="assets/js/scripts.js"></script>
     <script src="js/script.js"></script>
 </body>
+
 </html>

@@ -1,23 +1,26 @@
-window.onload = function() {
-    // Create the alert message
-    let alertMessage = document.createElement('div');
-    alertMessage.innerText = 'Welcome to AAA Digital';
-    alertMessage.style.position = 'fixed';
-    alertMessage.style.top = '10px';
-    alertMessage.style.left = '50%';
-    alertMessage.style.transform = 'translateX(-50%)';
-    alertMessage.style.backgroundColor = '#f8d7da';
-    alertMessage.style.color = '#721c24';
-    alertMessage.style.padding = '10px';
-    alertMessage.style.border = '1px solid #f5c6cb';
-    alertMessage.style.borderRadius = '5px';
-    alertMessage.style.zIndex = '1000';
+const hamburgerBtn = document.getElementById("hamburgerBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+const closeIcon = document.getElementById("closeIcon");
+const hamburgerIcon = document.getElementById("hamburgerIcon");
 
-    // Append the alert message to the body
-    document.body.appendChild(alertMessage);
+hamburgerBtn.addEventListener("click", () => {
+  const isOpen = mobileMenu.classList.contains("hidden");
+  if (isOpen) {
+    mobileMenu.classList.remove("hidden");
+    hamburgerIcon.classList.add("hidden");
+    closeIcon.classList.remove("hidden");
+  } else {
+    mobileMenu.classList.add("hidden");
+    hamburgerIcon.classList.remove("hidden");
+    closeIcon.classList.add("hidden");
+  }
+});
 
-    // Remove the alert message after 5 seconds
-    setTimeout(function() {
-        document.body.removeChild(alertMessage);
-    }, 5000);
-};
+
+// You can add this JavaScript if you'd like to handle clicks or hover effects
+const button = document.querySelector("button");
+
+button.addEventListener("click", () => {
+  console.log("Button Clicked");
+});
+
