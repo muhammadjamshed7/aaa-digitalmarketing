@@ -18,37 +18,155 @@
   </section>
 
   <script>
-    const services = [
-      {
-        id: 1,
-        title: 'Web Development',
-        description: 'Build high-performance, responsive websites tailored to your business needs, providing seamless user experiences and secure platforms.',
-        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code h-12 w-12 text-[#1bce8c] mb-4"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>',
-        path: '/web-development'
-      },
-      {
-        id: 2,
-        title: 'Mobile App Development',
-        description: 'Develop innovative, user-friendly mobile apps for iOS and Android that engage users and enhance your business presence on mobile platforms.',
-        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-smartphone h-12 w-12 text-[#1bce8c] mb-4"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>',
-        path: '/mobile-app-development'
-      },
-      {
-        id: 3,
-        title: 'E-Commerce Solutions',
-        description: 'Create scalable, secure, and conversion-optimized online stores that provide a seamless shopping experience and drive sales.',
-        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-bag h-12 w-12 text-[#1bce8c] mb-4"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>',
-        path: '/e-commerce-solutions'
-      },
-      {
-        id: 4,
-        title: 'Digital Marketing & SEO',
-        description: 'Increase visibility, drive traffic, and improve rankings with targeted SEO strategies and digital marketing campaigns that bring high ROI.',
-        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-megaphone h-12 w-12 text-[#1bce8c] mb-4"><path d="m3 11 18-5v12L3 14v-3z"></path><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path></svg>',
-        path: '/digital-marketing-seo'
-      },
-      // Add more services as needed
-    ];
+        const services = [
+            {
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="lucide lucide-code h-12 w-12 text-[#1bce8c] mb-4">
+                      <polyline points="16 18 22 12 16 6"></polyline>
+                      <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>`,
+                title: "Web Development",
+                description:
+                    "Build high-performance, responsive websites tailored to your business needs, providing seamless user experiences and secure platforms.",
+                li1: "Custom Web Development",
+                li2: "E-Commerce Development",
+                li3: "WordPress Development",
+                li4: "Shopify Store Setup",
+                li5: "Website Redesign",
+                link: 'servicespage/servbar1.html',
+            },
+            {
+                icon: ` <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-smartphone h-12 w-12 text-[#1bce8c] mb-4">
+                <rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect>
+                <path d="M12 18h.01"></path>
+              </svg>`,
+                title: "Mobile App Development",
+                description:
+                    "Develop innovative, user-friendly mobile apps for iOS and Android that engage users and enhance your business presence on mobile platforms.",
+                li1: "Custom Mobile App Development",
+                li2: "Cross-Platform Development",
+                li3: "App Maintenance & Updates",
+                li4: "Mobile App UI/UX Design",
+                li5: "App Optimization",
+                link: 'servicespage/servbar2.html',
+            },
+            {
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-shopping-bag h-12 w-12 text-[#1bce8c] mb-4">
+                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                <path d="M3 6h18"></path>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>`,
+                title: "E-Commerce Solutions",
+                description:
+                    "Create scalable, secure, and conversion-optimized online stores that provide a seamless shopping experience and drive sales.",
+                li1: "Custom E-Commerce Platforms",
+                li2: "Payment Gateway Integration",
+                li3: "E-Commerce App Development",
+                li4: "Product Management Systems",
+                li5: "E-Commerce Analytics",
+                link: 'servicespage/servbar3.html',
+            },
+            {
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-megaphone h-12 w-12 text-[#1bce8c] mb-4">
+                <path d="m3 11 18-5v12L3 14v-3z"></path>
+                <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path>
+              </svg>`,
+                title: "Digital Marketing & SEO",
+                description:
+                    "Increase visibility, drive traffic, and improve rankings with targeted SEO strategies and digital marketing campaigns that bring high ROI.",
+                li1: "On-Page & Off-Page SEO",
+                li2: "Local SEO",
+                li3: "PPC Management (Google Ads)",
+                li4: "Content Marketing & Strategy",
+                li5: "SEO Audits",
+                link: 'servicespage/servbar4.html',
+            },
+            {
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="h-12 w-12 text-[#1bce8c] mb-4">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>`,
+                title: "Social Media Marketing",
+                description:
+                    "Boost your brand’s presence with targeted social media campaigns, content creation, and community engagement across key platforms.",
+                li1: "Social Media Strategy Development",
+                li2: "Social Media Advertising",
+                li3: "Content Creation & Scheduling",
+                li4: "Community Management",
+                li5: "Influencer Marketing",
+                link: 'servicespage/servbar5.html',
+            },
+            {
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="h-12 w-12 text-[#1bce8c] mb-4">
+                <path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3Z"></path>
+                <path d="m6.2 5.3 3.1 3.9"></path>
+                <path d="m12.4 3.4 3.1 4"></path>
+                <path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"></path>
+              </svg>`,
+                title: "Video Marketing & Branding",
+                description:
+                    "Create engaging video content that drives brand awareness, builds trust, and enhances customer conversions.",
+                li1: "Explainer Videos",
+                li2: "Brand Storytelling",
+                li3: "Product Demos & Tutorials",
+                li4: "Video Ads & Social Media Clips",
+                li5: "Video SEO",
+                llink: 'servicespage/servbar6.html',
+            },
+            {
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="h-12 w-12 text-[#1bce8c] mb-4">
+                <path d="m12 14 4-4"></path>
+                <path d="M3.34 19a10 10 0 1 1 17.32 0"></path>
+              </svg>`,
+                title: "Email Marketing & Automation",
+                description:
+                    "Engage and convert your audience with personalized, automated email campaigns and lead generation strategies.",
+                li1: "Email Campaign Management",
+                li2: "Marketing Automation",
+                li3: "Lead Generation Campaigns",
+                li4: "List Segmentation",
+                li5: "A/B Testing & Optimization",
+                link: 'servicespage/servbar7.html',
+            },
+            {
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="h-12 w-12 text-[#1bce8c] mb-4">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>`,
+                title: "Custom Software Solutions",
+                description:
+                    "Develop tailored software solutions to automate business processes, integrate systems, and enhance operational efficiency.",
+                li1: "Bespoke Business Software",
+                li2: "CRM Development",
+                li3: "ERP Systems",
+                li4: "API Integrations",
+                li5: "Cloud-Based Software",
+                link: 'servicespage/servbar8.html',
+            },
+
+
+
+
+
+        ];
 
     const container = document.getElementById('service-cards-container');
 
@@ -61,20 +179,20 @@
         ${service.icon}
         <h3 class="text-xl font-semibold text-gray-900 mb-2">${service.title}</h3>
         <p class="text-gray-600">${service.description}</p>
-        <button class="mt-4 pb-2 flex items-center text-[#1bce8c] font-semibold group" onclick="navigateTo('${service.path}')">
+        <a href="'${service.link}'"  class="mt-4 pb-2 flex items-center text-[#1bce8c] font-semibold group" onclick="navigateTo('${service.link}')">
           <span>See more</span>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="15px" class="ml-2 pt-1">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" stroke="#292D32" d="M8.91016 19.9201L15.4302 13.4001C16.2002 12.6301 16.2002 11.3701 15.4302 10.6001L8.91016 4.08008"></path>
           </svg>
           <span class="absolute inset-x-0 bottom-0 h-0.5 bg-[#1bce8c] scale-x-0 group-hover:scale-x-100 transition-all duration-300"></span>
-        </button>
+        </a>
       `;
       container.appendChild(serviceCard);
     });
 
     // Navigation function
-    function navigateTo(path) {
-      window.location.href = path;  // This will navigate to the specific path (like /web-development)
+    function navigateTo(link) {
+      window.location.href = link;  // This will navigate to the specific path (like /web-development)
     }
   </script>
 
