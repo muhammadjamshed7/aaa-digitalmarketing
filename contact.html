@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-white">
+
+    <main class="bg-white">
+        <section class="relative bg-gradient-to-br from-gray-50 to-green-50 pt-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-22">
+                <div class="text-center">
+                    <h1 class="mt-4 text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+                        Contact <span class="text-[#1bce8c]">Us</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-2 max-w-2xl mx-auto">
+                        We’d love to hear from you! Fill out the form below with your details and message, and our team
+                        will get back to you promptly.
+                    </p>
+                </div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
+        </section>
+
+        <section class="bg-white py-2 flex items-center justify-center">
+            <div class="min-w-6xl px-4 sm:px-6 lg:px-8 w-full">
+                <form id="contact-form" class="max-w-2xl mx-auto space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                            <input type="text" id="name" required
+                                class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary" />
+                        </div>
+                        <div>
+                            <label for="contact" class="block text-sm font-medium text-gray-700">Contact</label>
+                            <input type="text" id="contact" required
+                                class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary" />
+                        </div>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" id="email" required
+                            class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary" />
+                    </div>
+                    <div>
+                        <label for="projectDescription" class="block text-sm font-medium text-gray-700">Project
+                            Description</label>
+                        <textarea id="projectDescription" rows="4" required
+                            class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"></textarea>
+                    </div>
+                    <div>
+                        <label for="budget" class="block text-sm font-medium text-gray-700">Budget</label>
+                        <select id="budget" required
+                            class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary">
+                            <option value="">Select your budget</option>
+                            <option value="">$5,000">Less than $5,000</option>
+                            <option value="$5,000-$10,000">$5,000 - $10,000</option>
+                            <option value="$10,000-$20,000">$10,000 - $20,000</option>
+                            <option value=">$20,000">More than $20,000</option>
+                        </select>
+                    </div>
+                    <div class="text-center">
+                        <button
+                            class="py-2 flex justify-center px-6 rounded-md text-md group border-2 border-[#1bce8c] text-[#1bce8c] hover:bg-[#1bce8c] hover:text-white items-center transition-colors relative inline-flex justify-centent-center items-center text-base md:text-lg font-semibold tracking-wide cursor-pointer transition-all duration-300 ease-in-out rounded-lg">
+                            <span>Submit</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
