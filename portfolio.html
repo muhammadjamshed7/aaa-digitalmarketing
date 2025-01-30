@@ -4,78 +4,213 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="Style/index.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" rel="stylesheet">
   <title>Document</title>
-<style>
-.counter {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #fff;
-}
+  <style>
+    .counter {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #fff;
+    }
 
-.counter span {
-  display: inline-block;
-  font-size: 4rem;  /* Adjust the size of the numbers */
-}
+    .counter span {
+      display: inline-block;
+      font-size: 4rem;
+      /* Adjust the size of the numbers */
+    }
 
-.countup {
-  visibility: hidden;  /* Ensure it's hidden initially */
-}
-
-
-</style>
+    .countup {
+      visibility: hidden;
+    }
+  </style>
 </head>
 
 <body>
-  <!-- Hero Section -->
-  <section
-    class="relative h-screen bg-[url('https://png.pngtree.com/thumb_back/fw800/background/20240328/pngtree-flat-lay-top-view-office-table-desk-image_15644935.jpg')] bg-center bg-cover">
-    <div class="absolute inset-0 bg-gray-100 opacity-80"></div>
-    <div class="relative h-full flex flex-col items-center justify-center text-center">
-      <span class=" text-[#1bce8c] -500 text-2xl font-bold uppercase tracking-wide">Our Services</span>
-      <h1 class="mt-4 text-4xl md:text-6xl font-bold text-gray-900">
-        Transform <span class=" text-[#1bce8c] -500">Your Digital Presence</span>
-      </h1>
-      <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-        At AAA Digital, we offer a wide range of tailored digital services to help your business thrive online.
-        From stunning websites to powerful mobile apps, our solutions are designed to drive growth, boost
-        engagement, and increase conversions.
-      </p>
-      <button
-        class="mt-8 px-6 py-3 relative inline-flex items-center justify-center text-lg font-medium tracking-wide cursor-pointer transition-all duration-500 ease-in-out rounded-lg text-[#1bce8c] bg-transparent border-2 border-[#1bce8c] hover:text-white hover:shadow-[inset_0_-100px_0_0_#1bce8c] px-5 py-2 group">
-        Let's Get Started
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-          class="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform">
-          <path d="M5 12h14"></path>
-          <path d="m12 5 7 7-7 7"></path>
-        </svg>
-      </button>
-    </div>
-  </section>
+  <!-- Navbar -->
+  <nav class="fixed w-full bg-white/90 backdrop-blur-sm z-50 border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+      <div class="flex justify-between h-16 items-center">
+        <!-- Logo -->
+        <div class="flex items-center">
+          <a href="/">
+            <span class="text-5xl font-bold cursor-pointer text-primary">
+              <img src="assets/images/logo.png" class="mt-2 h-auto w-20 object-cover" />
+            </span>
+          </a>
+        </div>
 
-  <!-- Portfolio cards portion -->
-  <section id="portfolioSection" class="py-20 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolioCardsContainer">
-        <!-- Cards will be dynamically inserted here -->
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="/"
+            class="text-gray-400 font-bold hover:text-[#1bce8c] transition hover:-translate-y-1 duration-300">Home</a>
+          <a href="/about.html"
+            class="text-gray-400 font-bold hover:text-[#1bce8c] transition hover:-translate-y-1 duration-300">About</a>
+          <a href="/services.html"
+            class="text-gray-400 font-bold hover:text-[#1bce8c] transition hover:-translate-y-1 duration-300">Services</a>
+          <a href="/portfolio.html"
+            class="text-gray-400 font-bold hover:text-[#1bce8c] transition hover:-translate-y-1 duration-300">Portfolio</a>
+          <a href="/blog.html"
+            class="text-gray-400 font-bold hover:text-[#1bce8c] transition hover:-translate-y-1 duration-300">Blogs</a>
+          <a href="/careers.html"
+            class="text-gray-400 font-bold hover:text-[#1bce8c] transition hover:-translate-y-1 duration-300">Careers</a>
+
+          <a href="/contact.html">
+            <button type="submit"
+              class="flex justify-center gap-2 items-center mx-auto shadow-xl text-lg text-white bg-[#1bce8c] backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-white hover:text-[#1bce8c] font-bold before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-none rounded-full group">
+              Get in touch
+              <svg
+                class="w-8 h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-[#1bce8c] ease-linear duration-300 rounded-full border border-gray-50 group-hover:border-none p-2 rotate-45"
+                viewBox="0 0 16 19">
+                <path
+                  d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+                  class="fill-gray-50 group-hover:fill-[#1bce8c]" />
+              </svg>
+            </button>
+          </a>
+        </div>
+
+        <!-- Hamburger Menu (for mobile) -->
+        <button id="hamburgerBtn" class="md:hidden flex text-gray-700">
+          <img id="hamburgerIcon" src="assets/images/icons/menu.png" class="w-6" alt="Hamburger Menu">
+          <span id="closeIcon" class="hidden w-12 text-xl text-black font-bold">X</span>
+        </button>
+
       </div>
     </div>
+
+    <!-- Mobile Menu (Hidden by default, shown when hamburger is clicked) -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200">
+      <div class="px-2 pt-2 pb-3 space-y-1 bg-white">
+        <a href="/"
+          class="block px-3 py-2 text-primary font-semibold hover:text-[#1bce8c]  transition duration-300">Home</a>
+        <a href="/about.html"
+          class="block px-3 py-2 text-gray-700 font-semibold hover:text-[#1bce8c] transition duration-300">About</a>
+        <a href="/services.html"
+          class="block px-3 py-2 text-gray-700 font-semibold hover:text-[#1bce8c] transition duration-300">Services</a>
+        <a href="/work.html"
+          class="block px-3 py-2 text-gray-700 font-semibold hover:text-[#1bce8c] transition duration-300">Portfolio</a>
+        <a href="/blog.html"
+          class="block px-3 py-2 text-gray-700 font-semibold hover:text-[#1bce8c] transition duration-300">Blogs</a>
+        <a href="/careers.html"
+          class="block px-3 py-2 text-gray-700 font-semibold hover:text-[#1bce8c] transition duration-300">Careers</a>
+
+        <div class="px-3 py-2">
+          <a href="/contact.html">
+            <button type="submit"
+              class="flex justify-center gap-2 items-center mx-auto shadow-xl text-lg text-white bg-[#1bce8c] backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-white hover:text-[#1bce8c] font-bold before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group">
+              Get in touch
+              <svg
+                class="w-8 h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-[#1bce8c] ease-linear duration-300 rounded-full border border-gray-50 group-hover:border-none p-2 rotate-45"
+                viewBox="0 0 16 19">
+                <path
+                  d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+                  class="fill-gray-50 group-hover:fill-[#1bce8c]" />
+              </svg>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section
+    class="relative h-[95vh] bg-white bg-[url('https://png.pngtree.com/thumb_back/fh260/background/20230801/pngtree-top-tips-to-make-money-blogging-image_12958761.jpg')] bg-center bg-cover">
+    <div class="absolute  bg-gray-100 w-[100%] h-[95vh] opacity-60"></div>
+    <div class="relative z-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-22 md:py-24 ">
+      <div class="text-center pt-32">
+        <h1 class="mt-4 text-3xl md:text-6xl font-bold text-gray-800 mb-6">
+          Projects We've <span class="text-[#1bce8c]">Delivered</span>
+        </h1>
+        <p class="text-lg text-gray-600 mb-8 max-w-xl py-2 mx-auto">
+          Explore our recent projects to discover how we've empowered
+          businesses to achieve their digital goals, enhance their online
+          presence, and drive long-term growth.
+        </p>
+        <a href="/contact.html">
+          <button
+            class="py-2 flex justify-center px-6 rounded-md text-md group border-2 border-[#1bce8c] text-[#1bce8c] hover:bg-[#1bce8c] hover:text-white items-center transition-colors relative inline-flex justify-centent-center items-center text-base md:text-lg font-medium tracking-wide cursor-pointer transition-all duration-300 ease-in rounded-lg">
+            <span>Get Your Free Consultation</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </a>
+      </div>
+    </div>
+    <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
   </section>
-  
-  <!-- Modal Dialog (Initially Hidden) -->
+
+  <!-- Featured Section  -->
+  <section class="container max-w-7xl pb-10 pt-20 mx-auto p-4 ">
+    <!-- <div class="text-center mb-16">
+      <h2 class=" text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Featured <span className="text-[#0edcac]">Projects</span>
+      </h2>
+      <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        Take a look at our recent work, showcasing how we’ve helped
+        businesses unlock their potential and achieve their digital goals
+        with cutting-edge solutions.
+      </p>
+    </div> -->
+    <!-- Category buttons container -->
+    <div id="categoryButtonsContainer" class="flex flex-wrap p-1"></div>
+
+    <!-- Portfolio cards container -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolioCardsContainer"></div>
+
+
+  </section>
+
+  <!-- Modal Dialog -->
   <div id="portfolioModal" class="fixed z-30 inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center hidden">
-    <div class="bg-white p-8 rounded-lg w-11/12 sm:w-1/2 relative">
-      <button id="closeModal" class="absolute top-4 right-4 text-red-600 font-bold text-2xl">X</button>
+    <div class="bg-white p-8 rounded-lg w-11/12 md:w-1/2 relative">
+      <button id="closeModal" class="absolute top-4 right-4 text-[#1bce8c] font-bold text-2xl">X</button>
       <div>
-        <h2 class="text-2xl font-bold mb-4" id="modalTitle">Project Title</h2>
-        <p id="modalDescription" class="text-gray-700 text-lg mb-6">Description of the project goes here.</p>
-        <p class="text-gray-500 text-sm">Technologies:</p>
-        <p id="modalTechnologies" class="text-[#1bce8c] font-semibold text-lg">Technologies Used Here</p>
+        <h2 class="text-xl font-bold my-2" id="modalTitle">Project Title</h2>
+        <p id="modalDescription" class="text-gray-700 text-base my-2"></p>
+        <ul id="featureLi" class="ml-4 mt-2 mb-3 list-disc"></ul>
+        <h4 class="text-lg font-semibold my-1">Challenge</h4>
+        <p id="modalChallenge" class="text-gray-500 text-sm mb-3"></p>
+        <h4 class="text-lg font-semibold my-1">Solution</h4>
+        <p id="modalSolution" class="text-gray-500 text-sm mb-3"></p>
+        <h4 class="text-lg font-semibold my-1">Result</h4>
+        <p id="modalResult" class="text-gray-500 text-sm mb-3"></p>
+        <code class="text-base text-gray-700 font-semibold">Technologies:</code>
+        <code id="modalTechnologies" class="text-[#1bce8c] font-bold text-lg"></code>
       </div>
     </div>
   </div>
 
+  <!-- Testimonial Section -->
+  <main class="mx-2 sm:mx-10 py-7 rounded-2xl bg-cover relative">
+    <div class="text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 my-2">
+        What Our <span class="text-[#1bce8c]">Clients Say</span>
+      </h2>
+      <p class="text-xl my-2 text-gray-600 max-w-2xl mx-auto">
+        Don't just take our word for it - hear from some of our satisfied clients.
+      </p>
+
+      <!-- <div class="flex justify-center items-center flex-wrap flex-1" id="categories">
+            Categories will be dynamically generated here
+        </div> -->
+    </div>
+
+    <section class="w-full z-[400] container mx-auto px-4 py-14">
+      <div class="swiper-container overflow-x-hidden">
+        <div class="swiper-wrapper " id="swiper-wrapper">
+          <!-- Testimonial cards will be dynamically generated here -->
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- our mission -->
   <main class="bg-white">
@@ -90,9 +225,12 @@
               Empowering Businesses, <span class="text-gray-200">Transforming Futures</span>
             </h1>
             <p class="text-base md:text-lg text-gray-300 my-5 pb-5 max-w-3xl mx-auto">
-              Our mission is to empower businesses with innovative, results-driven digital solutions that drive growth,
-              enhance user experiences, and deliver measurable success. We strive to be more than just a service
-              provider—we’re your long-term partner in navigating the digital world with confidence, creativity, and
+              Our mission is to empower businesses with innovative, results-driven digital solutions
+              that drive growth,
+              enhance user experiences, and deliver measurable success. We strive to be more than just
+              a service
+              provider—we’re your long-term partner in navigating the digital world with confidence,
+              creativity, and
               cutting-edge technology.
             </p>
           </div>
@@ -100,30 +238,36 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 lg:gap-4 lg:pr-0 pr-6">
               <div
                 class="bg-gray-100 scale-100 hover:scale-105 duration-300 p-2 md:p-3 lg:p-5 rounded-lg shadow-md hover:shadow-xl">
-                <h3 class="text-[17px] lg:text-base 2xl:text-lg font-bold text-gray-700 mb-3">Build Success Stories</h3>
+                <h3 class="text-[17px] lg:text-base 2xl:text-lg font-bold text-gray-700 mb-3">Build
+                  Success Stories</h3>
                 <p class="text-gray-400 text-[13px] sm:text-sm xl:text-base font-semibold">
-                  Crafting custom websites, apps, and marketing strategies that meet and exceed business goals.
+                  Crafting custom websites, apps, and marketing strategies that meet and exceed
+                  business goals.
                 </p>
               </div>
               <div
                 class="bg-gray-100 scale-100 hover:scale-105 duration-300 p-2 md:p-3 lg:p-5 rounded-lg shadow-md hover:shadow-xl">
-                <h3 class="text-[17px] lg:text-base 2xl:text-lg font-bold text-gray-700 mb-3">Inspire Innovation</h3>
+                <h3 class="text-[17px] lg:text-base 2xl:text-lg font-bold text-gray-700 mb-3">
+                  Inspire Innovation</h3>
                 <p class="text-gray-400 text-[13px] sm:text-sm xl:text-base font-semibold">
                   Leveraging the latest tools and frameworks to stay ahead of the competition.
                 </p>
               </div>
               <div
                 class="bg-gray-100 scale-100 hover:scale-105 duration-300 p-2 md:p-3 lg:p-5 rounded-lg shadow-md hover:shadow-xl">
-                <h3 class="text-[17px] lg:text-base 2xl:text-lg font-bold text-gray-700 mb-3">Foster Growth</h3>
+                <h3 class="text-[17px] lg:text-base 2xl:text-lg font-bold text-gray-700 mb-3">Foster
+                  Growth</h3>
                 <p class="text-gray-400 text-[13px] sm:text-sm xl:text-base font-semibold">
                   Delivering scalable solutions that adapt to your business needs.
                 </p>
               </div>
               <div
                 class="bg-gray-100 scale-100 hover:scale-105 duration-300 p-2 md:p-3 lg:p-5 rounded-lg shadow-md hover:shadow-xl">
-                <h3 class="text-[17px] lg:text-base 2xl:text-lg font-bold text-gray-700 mb-3">Simplify the Complex</h3>
+                <h3 class="text-[17px] lg:text-base 2xl:text-lg font-bold text-gray-700 mb-3">
+                  Simplify the Complex</h3>
                 <p class="text-gray-400 text-[13px] sm:text-sm xl:text-base font-semibold">
-                  Providing clear communication, transparent processes, and ongoing support for a seamless journey.
+                  Providing clear communication, transparent processes, and ongoing support for a
+                  seamless journey.
                 </p>
               </div>
             </div>
@@ -134,7 +278,7 @@
   </main>
 
   <!-- Transforming Futures portion -->
-  <section class="bg-emerald-300 mb-7 py-10">
+  <section class="bg-emerald-300 mt-6  py-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
         <!-- Project Delivered -->
@@ -160,7 +304,73 @@
       </div>
     </div>
   </section>
-  
+
+
+  <!-- Contact US -->
+  <main class="bg-white mb-10 ">
+    <section class="relative bg-gradient-to-br from-gray-50 to-green-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-22">
+        <div class="text-center">
+          <h1 class="mt-4 text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            Contact <span class="text-[#1bce8c]">Us</span>
+          </h1>
+          <p class="text-xl text-gray-600 mb-2 max-w-2xl mx-auto">
+            We’d love to hear from you! Fill out the form below with your details and message, and our
+            team
+            will get back to you promptly.
+          </p>
+        </div>
+      </div>
+      <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
+    </section>
+
+    <section class="bg-white py-2 flex items-center justify-center">
+      <div class="min-w-6xl px-4 sm:px-6 lg:px-8 w-full">
+        <form id="contact-form" class="max-w-2xl mx-auto space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+              <input type="text" id="name" required
+                class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary" />
+            </div>
+            <div>
+              <label for="contact" class="block text-sm font-medium text-gray-700">Contact</label>
+              <input type="text" id="contact" required
+                class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary" />
+            </div>
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+            <input type="email" id="email" required
+              class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary" />
+          </div>
+          <div>
+            <label for="projectDescription" class="block text-sm font-medium text-gray-700">Project
+              Description</label>
+            <textarea id="projectDescription" rows="4" required
+              class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"></textarea>
+          </div>
+          <div>
+            <label for="budget" class="block text-sm font-medium text-gray-700">Budget</label>
+            <select id="budget" required
+              class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary">
+              <option value="">Select your budget</option>
+              <option value="">$5,000">Less than $5,000</option>
+              <option value="$5,000-$10,000">$5,000 - $10,000</option>
+              <option value="$10,000-$20,000">$10,000 - $20,000</option>
+              <option value=">$20,000">More than $20,000</option>
+            </select>
+          </div>
+          <div class="text-center">
+            <button
+              class="py-2 flex justify-center px-6 rounded-md text-md group border-2 border-[#1bce8c] text-[#1bce8c] hover:bg-[#1bce8c] hover:text-white items-center transition-colors relative inline-flex justify-centent-center items-center text-base md:text-lg font-semibold tracking-wide cursor-pointer transition-all duration-300 ease-in-out rounded-lg">
+              <span>Submit</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer class="bg-gray-900 text-white py-12">
@@ -168,15 +378,16 @@
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <!-- Logo and Description -->
         <div>
-          <img src="src/assets/images/aaatech.png" alt="Logo" class="pt-2 pl-2 h-20 w-auto object-cover">
+          <img src="assets//images/logo-white.png" alt="Logo" class="pt-2 pl-2 h-20 w-auto object-cover">
           <p class="text-gray-200 sm:pr-6 tracking-wider mt-8 text-sm">
             Revolutionizing your business with bold, innovative digital solutions that drive exponential
-            growth, ignite operational efficiency, and unlock limitless potential—empowering you to thrive
+            growth, ignite operational efficiency, and unlock limitless potential—empowering you to
+            thrive
             in an ever-evolving digital world.
           </p>
           <div class="flex space-x-6 mt-6">
             <a href="https://www.facebook.com/profile.php?id=61566395171281"
-              class="text-gray-400 hover:text-primary transition-transform transform hover:scale-110"
+              class="text-gray-400 hover:text-[#1bce8c] transition-transform transform hover:scale-110"
               aria-label="Facebook">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -185,7 +396,7 @@
               </svg>
             </a>
             <a href="https://www.linkedin.com/company/aaa-digital-marketing/posts/?feedView=all"
-              class="text-gray-400 hover:text-primary transition-transform transform hover:scale-110"
+              class="text-gray-400 hover:text-[#1bce8c] transition-transform transform hover:scale-110"
               aria-label="LinkedIn">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -204,28 +415,28 @@
           <h4 class="text-xl font-bold mb-4 text-gray-200">Services</h4>
           <ul class="space-y-2">
             <li><button
-                class="text-gray-400 hover:text-primary transition duration-300 transform hover:translate-x-2">Web
+                class="text-gray-400 hover:text-[#1bce8c] transition duration-300 transform hover:translate-x-2">Web
                 Development</button></li>
             <li><button
-                class="text-gray-400 hover:text-primary transition duration-300 transform hover:translate-x-2">App
+                class="text-gray-400 hover:text-[#1bce8c] transition duration-300 transform hover:translate-x-2">App
                 Development</button></li>
             <li><button
-                class="text-gray-400 hover:text-primary transition duration-300 transform hover:translate-x-2">Custom
+                class="text-gray-400 hover:text-[#1bce8c] transition duration-300 transform hover:translate-x-2">Custom
                 Software Development</button></li>
             <li><button
-                class="text-gray-400 hover:text-primary transition duration-300 transform hover:translate-x-2">E-Commerce
+                class="text-gray-400 hover:text-[#1bce8c] transition duration-300 transform hover:translate-x-2">E-Commerce
                 Solutions</button></li>
             <li><button
-                class="text-gray-400 hover:text-primary transition duration-300 transform hover:translate-x-2">Digital
+                class="text-gray-400 hover:text-[#1bce8c] transition duration-300 transform hover:translate-x-2">Digital
                 Marketing</button></li>
             <li><button
-                class="text-gray-400 hover:text-primary transition duration-300 transform hover:translate-x-2">Social
+                class="text-gray-400 hover:text-[#1bce8c] transition duration-300 transform hover:translate-x-2">Social
                 Media Marketing</button></li>
             <li><button
-                class="text-gray-400 hover:text-primary transition duration-300 transform hover:translate-x-2">Email
+                class="text-gray-400 hover:text-[#1bce8c] transition duration-300 transform hover:translate-x-2">Email
                 Marketing</button></li>
             <li><button
-                class="text-gray-400 hover:text-primary transition duration-300 transform hover:translate-x-2">Video
+                class="text-gray-400 hover:text-[#1bce8c] transition duration-300 transform hover:translate-x-2">Video
                 Marketing & Branding</button></li>
           </ul>
         </div>
@@ -235,16 +446,16 @@
           <h4 class="text-lg font-semibold mb-4 text-gray-200">Pages</h4>
           <ul class="space-y-2">
             <li><button
-                class="text-gray-400 hover:text-primary transition duration-300 transform hover:translate-x-2">Portfolio</button>
+                class="text-gray-400 hover:text-[#1bce8c] transition duration-300 transform hover:translate-x-2">Portfolio</button>
             </li>
             <li><button
-                class="text-gray-400 hover:text-primary transition duration-300 transform hover:translate-x-2">About</button>
+                class="text-gray-400 hover:text-[#1bce8c] transition duration-300 transform hover:translate-x-2">About</button>
             </li>
             <li><button
-                class="text-gray-400 hover:text-primary transition duration-300 transform hover:translate-x-2">Blog</button>
+                class="text-gray-400 hover:text-[#1bce8c] transition duration-300 transform hover:translate-x-2">Blog</button>
             </li>
             <li><button
-                class="text-gray-400 hover:text-primary transition duration-300 transform hover:translate-x-2">Contact
+                class="text-gray-400 hover:text-[#1bce8c] transition duration-300 transform hover:translate-x-2">Contact
                 Us</button></li>
           </ul>
         </div>
@@ -252,7 +463,7 @@
         <div>
           <h4 class="text-xl font-bold mb-4 text-gray-200">Contact</h4>
           <div
-            class="flex items-center cursor-pointer text-gray-400 transition-transform transform hover:scale-105 hover:text-primary">
+            class="flex items-center cursor-pointer text-gray-400 transition-transform transform hover:scale-105 hover:text-[#1bce8c]">
             <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path
@@ -262,7 +473,7 @@
             <span class="text-sm">Business@aaa-digitalmarketing.com</span>
           </div>
           <div
-            class="flex items-center text-gray-400 mt-4 cursor-pointer hover:text-primary transition-transform transform hover:scale-105">
+            class="flex items-center text-gray-400 mt-4 cursor-pointer hover:text-[#1bce8c] transition-transform transform hover:scale-105">
             <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path
@@ -275,306 +486,565 @@
       </div>
 
       <!-- Footer Bottom -->
-      <div class="mt-12 pt-8 border-t border-gray-800">
-        <div class="text-center text-gray-400">
-          <p>© 2025 Portfolio. All rights reserved.</p>
-        </div>
-      </div>
+      <!-- <div class="mt-12 pt-8 border-t border-gray-800">
+            <div class="text-center text-gray-400">
+                <p>© 2025 Portfolio. All rights reserved.</p>
+            </div>
+        </div> -->
     </div>
   </footer>
 
 
   <script>
-   // Count-Up Function
-function countUp(element, targetValue, duration) {
-  let startValue = 0;
-  let range = targetValue - startValue;
-  let stepTime = Math.abs(Math.floor(duration / range));
-  let current = startValue;
+    // Count-Up Function
+    function countUp(element, targetValue, duration) {
+      let startValue = 0;
+      let range = targetValue - startValue;
+      let stepTime = Math.abs(Math.floor(duration / range));
+      let current = startValue;
 
-  element.style.visibility = "visible"; // Make the counter visible when animation starts
+      element.style.visibility = "visible"; // Make the counter visible when animation starts
 
-  let timer = setInterval(() => {
-    current += 1;
-    element.innerHTML = current + (element.dataset.suffix || ""); // Update the counter value
-    if (current === targetValue) {
-      clearInterval(timer);
+      let timer = setInterval(() => {
+        current += 1;
+        element.innerHTML = current + (element.dataset.suffix || ""); // Update the counter value
+        if (current === targetValue) {
+          clearInterval(timer);
+        }
+      }, stepTime);
     }
-  }, stepTime);
-}
 
-// Detect when the element is in the viewport
-document.addEventListener("DOMContentLoaded", () => {
-  const counters = document.querySelectorAll(".countup");
+    // Detect when the element is in the viewport
+    document.addEventListener("DOMContentLoaded", () => {
+      const counters = document.querySelectorAll(".countup");
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const counter = entry.target;
-        const targetValue = parseInt(counter.dataset.target);
-        const duration = 2000; // Duration for the count-up (in milliseconds)
-        
-        countUp(counter, targetValue, duration);
-        observer.unobserve(counter);
-      }
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const counter = entry.target;
+            const targetValue = parseInt(counter.dataset.target);
+            const duration = 2000; // Duration for the count-up (in milliseconds)
+
+            countUp(counter, targetValue, duration);
+            observer.unobserve(counter);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      counters.forEach(counter => {
+        observer.observe(counter);
+      });
     });
-  }, { threshold: 0.5 });
-
-  counters.forEach(counter => {
-    observer.observe(counter);
-  });
-});
 
 
 
 
-// Data for the portfolio cards
-const projects = [
-  {
-    title: "E-Commerce Website for MountWorks Outdoors",
-    category: "Web Development",
-    description:
-      "MountWorks Outdoors faced challenges with their sluggish and difficult-to-navigate online store, which led to a frustrating shopping experience for customers. Users found it hard to explore products and make purchases, resulting in lower engagement and sales.",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-    features: [
-      "Advanced product categorization",
-      "Mobile optimization",
-      "Secure payment gateways",
-    ],
-    challenge: "A sluggish, difficult-to-navigate online store.",
-    solution:
-      "We created a custom Shopify e-commerce store with advanced product categorization, mobile optimization, and secure payment gateways.",
-    result:
-      "Increased sales, improved user engagement, and a streamlined shopping experience.",
-    technologiesUsed: "Shopify, HTML5, CSS3, JavaScript",
-  },
-  {
-    title: "Corporate Website for Kinetic Systems",
-    category: "Web Development",
-    description:
-      "Kinetic Systems struggled with a static website that failed to attract leads and engage visitors effectively. The lack of dynamic content and interactive elements meant potential clients were not engaging with the brand, leading to low conversions and missed opportunities.",
-    image:
-      "https://media.istockphoto.com/id/1305999733/photo/web-design-desktop.jpg?s=612x612&w=0&k=20&c=mdGnzSrhUGijPuXHR3vA_hrQyshToudcJc8A50L0a9I=",
-    features: [
-      "Lead-generation forms",
-      "Responsive design",
-      "Clean and professional design",
-    ],
-    challenge: "A lack of leads from a static website.",
-    solution:
-      "Developed a modern WordPress website, with a clean, professional design, lead-generation forms, and responsive design.",
-    result:
-      "Boosted lead generation and improved user experience across devices.",
-    technologiesUsed: "WordPress, PHP, MySQL, Custom Theme",
-  },
-  {
-    title: "Portfolio Website for ArtHouse Collective",
-    category: "Web Development",
-    description:
-      "ArtHouse Collective needed an online presence that could effectively showcase their creative work. Their previous portfolio lacked visibility and interactive features, resulting in low engagement and limited exposure for their unique projects.",
-    image:
-      "https://www.wsiworld.com/hubfs/2019/Digital-Marketing-Map-System.png",
-    features: ["Fast load times", "Smooth animations", "Engaging features"],
-    challenge: "Low visibility of creative work.",
-    solution:
-      "Built a React.js-powered portfolio with fast load times, smooth animations, and engaging features to showcase their work.",
-    result:
-      "Increased visibility, improved brand reputation, and client engagement.",
-    technologiesUsed: "React.js, Node.js, CSS3, JavaScript",
-  },
-  {
-    title: "On-Demand Delivery App for QuickDrop Logistics",
-    category: "Mobile App Development",
-    description:
-      "QuickDrop Logistics faced challenges with managing and tracking deliveries effectively. The system was disorganized, resulting in delayed shipments and confusion for both customers and the logistics team.",
-    image:
-      "https://plus.unsplash.com/premium_photo-1664910033852-f1639b57cd9b?q=80&w=2070&auto=format&fit=crop",
-    features: [
-      "Real-time tracking",
-      "Automated delivery management",
-      "Customer notifications",
-    ],
-    challenge: "Disorganized delivery management and tracking.",
-    solution:
-      "Developed a cross-platform mobile app with real-time tracking, automated delivery management, and customer notifications.",
-    result:
-      "Enhanced operational efficiency and a smoother user experience for customers.",
-    technologiesUsed: "React Native, Firebase, Google Maps API",
-  },
-  {
-    title: "Fitness App for MotionFit",
-    category: "Mobile App Development",
-    description:
-      "MotionFit's existing fitness app lacked effective engagement tools, making it difficult for users to track their fitness progress and stay motivated. Users were leaving the app due to a lack of features that helped them achieve their goals.",
-    image:
-      "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=800&q=80",
-    features: ["Goal-setting", "Workout tracking", "Social sharing"],
-    challenge: "Ineffective engagement with fitness tracking.",
-    solution:
-      "Created a user-friendly fitness tracking app with goal-setting, workout tracking, and social sharing.",
-    result: "Boosted app retention and user engagement across iOS and Android.",
-    technologiesUsed: "Flutter, Dart, Firebase, REST APIs",
-  },
-  {
-    title: "Shopify Store for EchoCycle Sports",
-    category: "E-Commerce Solutions",
-    description:
-      "EchoCycle Sports faced challenges with their previous e-commerce store due to low conversion rates and a poor mobile shopping experience. Customers found it difficult to complete purchases, leading to abandoned carts and lost sales.",
-    image:
-      "https://riseuplabs.com/wp-content/uploads/2021/03/all-in-one-ecommerce-solution.jpg",
-    features: [
-      "Mobile optimization",
-      "Integrated with inventory management",
-      "Streamlined order processing",
-    ],
-    challenge: "Low conversion rates and poor mobile shopping experience.",
-    solution:
-      "Designed and developed a custom Shopify store optimized for mobile devices, integrated with inventory management, and streamlined order processing.",
-    result: "Increased conversion rates and boosted sales.",
-    technologiesUsed: "Shopify, Liquid, HTML5, CSS3, JavaScript",
-  },
-  {
-    title: "WooCommerce Store for UrbanRoots Apparel",
-    category: "E-Commerce Solutions",
-    description:
-      "UrbanRoots Apparel was struggling with a poor user experience on their previous WooCommerce store. Customers found the site difficult to navigate and the checkout process slow, which led to frustration and lost sales.",
-    image:
-      "https://cdn.dribbble.com/userupload/9089332/file/original-0f288efd42599c346a8f54adf8cde8ff.png?resize=400x0",
-    features: ["Responsive design", "Secure checkout", "Easy navigation"],
-    challenge: "Difficult navigation and slow checkout process.",
-    solution:
-      "Built a fully responsive WooCommerce store with secure checkout and easy navigation, leading to higher customer retention.",
-    result: "Increased conversions and repeat customer visits.",
-    technologiesUsed: "WooCommerce, WordPress, PHP, MySQL",
-  },
-  {
-    title: "SEO Strategy for LuxeFit Wellness",
-    category: "Digital Marketing & SEO",
-    description:
-      "LuxeFit Wellness was facing issues with low visibility in search engine results, which made it difficult for potential clients to find their website. Despite offering great services, they were not getting enough organic traffic.",
-    image:
-      "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202406/666095d3dda47-top-features-to-look-for-in-learning-management-systems-054402379-16x9.jpeg?size=1200:675",
-    features: ["On-page SEO", "Content creation", "Local SEO"],
-    challenge: "Low visibility in search engines.",
-    solution:
-      "Implemented an extensive SEO strategy, including on-page SEO, content creation, and local SEO for better search engine rankings.",
-    result: "40% increase in organic traffic, improved search rankings.",
-    technologiesUsed:
-      "Google Analytics, SEMrush, Yoast SEO, Google Search Console",
-  },
-  {
-    title: "PPC Campaign for GreenStar Farms",
-    category: "Digital Marketing & SEO",
-    description:
-      "GreenStar Farms was struggling with ineffective online advertising that resulted in low lead generation. Their existing campaigns weren’t optimized for their target audience, which made it difficult to generate quality leads.",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXUubJ9F7OdmNGNRhZDlSZqxjZNvm0J46pFQ&s",
-    features: [
-      "Targeted Google Ads campaign",
-      "Optimized ads for maximum reach and conversions",
-    ],
-    challenge: "Ineffective online advertising and low lead generation.",
-    solution:
-      "Managed a targeted Google Ads campaign, optimizing ads for maximum reach and conversions.",
-    result: "30% increase in leads and better ad performance.",
-    technologiesUsed: "Google Ads, Google Analytics, Keyword Research Tools",
-  },
-  {
-    title: "Instagram Campaign for PureVibe Supplements",
-    category: "Social Media Marketing",
-    description:
-      "PureVibe Supplements had minimal brand visibility on Instagram, which hindered their ability to connect with potential customers. The brand lacked a social media strategy that could drive engagement and promote their products effectively.",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsPow6UFHtIMa1u_1WQ3fo82O5xXAnEfJtoA&s",
-    features: ["Influencer partnerships", "Visually appealing content"],
-    challenge: "Lack of brand exposure on social media.",
-    solution:
-      "Launched an engaging Instagram campaign that used influencer partnerships and visually appealing content to boost brand visibility.",
-    result: "Increased followers, engagement, and brand awareness.",
-    technologiesUsed: "Instagram Ads, Influencer Partnerships, Analytics Tools",
-  },
-  {
-    title: "Explainer Video for CleanTech Solutions",
-    category: "Video Marketing & Branding",
-    description:
-      "CleanTech Solutions was having trouble explaining their complex range of services to potential clients. Their website lacked clarity, which led to confusion and a low conversion rate.",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRh_lcabBw83Z0WlosNURPvwmAJ0p3_kp0eQ&s",
-    features: ["Simplified offerings", "Attracted more leads"],
-    challenge: "Difficulty explaining complex services to potential customers.",
-    solution:
-      "Produced an engaging explainer video that simplified CleanTech Solutions’ offerings and attracted more leads.",
-    result: "Increased conversions and enhanced brand awareness.",
-    technologiesUsed:
-      "Adobe Premiere Pro, After Effects, Video Hosting Platforms",
-  },
-  {
-    title: "Promotional Video for UrbanVibes Clothing",
-    category: "Video Marketing & Branding",
-    description:
-      "UrbanVibes Clothing had low engagement on their social media platforms, particularly Instagram. Their marketing efforts lacked a dynamic approach to attracting followers and engaging with their audience.",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDYPzGQWOrfy0Uo-aN3RFQ3TQm8jCtH7rJOw&s",
-    features: ["Dynamic promotional video", "Showcased latest clothing line"],
-    challenge: "Low social media engagement.",
-    solution:
-      "Created a dynamic promotional video showcasing UrbanVibes’ latest clothing line, driving social media interaction.",
-    result: "Boosted product sales and social media engagement.",
-    technologiesUsed:
-      "Adobe Premiere Pro, Final Cut Pro, Social Media Marketing",
-  },
-];
+    // Data for the portfolio cards
 
+    const projects = [
+      {
+        title: "E-Commerce Website for MountWorks Outdoors",
+        category: "Web Development",
+        description:
+          "MountWorks Outdoors faced challenges with their sluggish and difficult-to-navigate online store, which led to a frustrating shopping experience for customers. Users found it hard to explore products and make purchases, resulting in lower engagement and sales.",
+        image:
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+        features: [
+          "Advanced product categorization",
+          "Mobile optimization",
+          "Secure payment gateways",
+        ],
+        challenge: "A sluggish, difficult-to-navigate online store.",
+        solution:
+          "We created a custom Shopify e-commerce store with advanced product categorization, mobile optimization, and secure payment gateways.",
+        result:
+          "Increased sales, improved user engagement, and a streamlined shopping experience.",
+        technologiesUsed: "Shopify, HTML5, CSS3, JavaScript",
+      },
+      {
+        title: "Corporate Website for Kinetic Systems",
+        category: "Web Development",
+        description:
+          "Kinetic Systems struggled with a static website that failed to attract leads and engage visitors effectively. The lack of dynamic content and interactive elements meant potential clients were not engaging with the brand, leading to low conversions and missed opportunities.",
+        image:
+          "https://media.istockphoto.com/id/1305999733/photo/web-design-desktop.jpg?s=612x612&w=0&k=20&c=mdGnzSrhUGijPuXHR3vA_hrQyshToudcJc8A50L0a9I=",
+        features: [
+          "Lead-generation forms",
+          "Responsive design",
+          "Clean and professional design",
+        ],
+        challenge: "A lack of leads from a static website.",
+        solution:
+          "Developed a modern WordPress website, with a clean, professional design, lead-generation forms, and responsive design.",
+        result:
+          "Boosted lead generation and improved user experience across devices.",
+        technologiesUsed: "WordPress, PHP, MySQL, Custom Theme",
+      },
+      {
+        title: "Portfolio Website for ArtHouse Collective",
+        category: "Web Development",
+        description:
+          "ArtHouse Collective needed an online presence that could effectively showcase their creative work. Their previous portfolio lacked visibility and interactive features, resulting in low engagement and limited exposure for their unique projects.",
+        image:
+          "https://images.unsplash.com/photo-1519074002996-a69e7ac46a42?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        features: ["Fast load times", "Smooth animations", "Engaging features"],
+        challenge: "Low visibility of creative work.",
+        solution:
+          "Built a React.js-powered portfolio with fast load times, smooth animations, and engaging features to showcase their work.",
+        result:
+          "Increased visibility, improved brand reputation, and client engagement.",
+        technologiesUsed: "React.js, Node.js, CSS3, JavaScript",
+      },
+      {
+        title: "On-Demand Delivery App for QuickDrop Logistics",
+        category: "Mobile App Development",
+        description:
+          "QuickDrop Logistics faced challenges with managing and tracking deliveries effectively. The system was disorganized, resulting in delayed shipments and confusion for both customers and the logistics team.",
+        image:
+          "https://plus.unsplash.com/premium_photo-1664910033852-f1639b57cd9b?q=80&w=2070&auto=format&fit=crop",
+        features: [
+          "Real-time tracking",
+          "Automated delivery management",
+          "Customer notifications",
+        ],
+        challenge: "Disorganized delivery management and tracking.",
+        solution:
+          "Developed a cross-platform mobile app with real-time tracking, automated delivery management, and customer notifications.",
+        result:
+          "Enhanced operational efficiency and a smoother user experience for customers.",
+        technologiesUsed: "React Native, Firebase, Google Maps API",
+      },
+      {
+        title: "Fitness App for MotionFit",
+        category: "Mobile App Development",
+        description:
+          "MotionFit's existing fitness app lacked effective engagement tools, making it difficult for users to track their fitness progress and stay motivated. Users were leaving the app due to a lack of features that helped them achieve their goals.",
+        image:
+          "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=800&q=80",
+        features: ["Goal-setting", "Workout tracking", "Social sharing"],
+        challenge: "Ineffective engagement with fitness tracking.",
+        solution:
+          "Created a user-friendly fitness tracking app with goal-setting, workout tracking, and social sharing.",
+        result:
+          "Boosted app retention and user engagement across iOS and Android.",
+        technologiesUsed: "Flutter, Dart, Firebase, REST APIs",
+      },
+      {
+        title: "Shopify Store for EchoCycle Sports",
+        category: "E-Commerce Solutions",
+        description:
+          "EchoCycle Sports faced challenges with their previous e-commerce store due to low conversion rates and a poor mobile shopping experience. Customers found it difficult to complete purchases, leading to abandoned carts and lost sales.",
+        image:
+          "https://img.freepik.com/free-photo/showing-cart-trolley-shopping-online-sign-graphic_53876-133967.jpg",
+        features: [
+          "Mobile optimization",
+          "Integrated with inventory management",
+          "Streamlined order processing",
+        ],
+        challenge: "Low conversion rates and poor mobile shopping experience.",
+        solution:
+          "Designed and developed a custom Shopify store optimized for mobile devices, integrated with inventory management, and streamlined order processing.",
+        result: "Increased conversion rates and boosted sales.",
+        technologiesUsed: "Shopify, Liquid, HTML5, CSS3, JavaScript",
+      },
+      {
+        title: "WooCommerce Store for UrbanRoots Apparel",
+        category: "E-Commerce Solutions",
+        description:
+          "UrbanRoots Apparel was struggling with a poor user experience on their previous WooCommerce store. Customers found the site difficult to navigate and the checkout process slow, which led to frustration and lost sales.",
+        image:
+          "https://cdn.dribbble.com/userupload/9089332/file/original-0f288efd42599c346a8f54adf8cde8ff.png?resize=400x0",
+        features: ["Responsive design", "Secure checkout", "Easy navigation"],
+        challenge: "Difficult navigation and slow checkout process.",
+        solution:
+          "Built a fully responsive WooCommerce store with secure checkout and easy navigation, leading to higher customer retention.",
+        result: "Increased conversions and repeat customer visits.",
+        technologiesUsed: "WooCommerce, WordPress, PHP, MySQL",
+      },
+      {
+        title: "SEO Strategy for LuxeFit Wellness",
+        category: "Digital Marketing & SEO ",
+        description:
+          "LuxeFit Wellness was facing issues with low visibility in search engine results, which made it difficult for potential clients to find their website. Despite offering great services, they were not getting enough organic traffic.",
+        image:
+          "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202406/666095d3dda47-top-features-to-look-for-in-learning-management-systems-054402379-16x9.jpeg?size=1200:675",
+        features: ["On-page SEO", "Content creation", "Local SEO"],
+        challenge: "Low visibility in search engines.",
+        solution:
+          "Implemented an extensive SEO strategy, including on-page SEO, content creation, and local SEO for better search engine rankings.",
+        result: "40% increase in organic traffic, improved search rankings.",
+        technologiesUsed:
+          "Google Analytics, SEMrush, Yoast SEO, Google Search Console",
+      },
+      {
+        title: "PPC Campaign for GreenStar Farms",
+        category: "Digital Marketing & SEO",
+        description:
+          "GreenStar Farms was struggling with ineffective online advertising that resulted in low lead generation. Their existing campaigns weren’t optimized for their target audience, which made it difficult to generate quality leads.",
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXUubJ9F7OdmNGNRhZDlSZqxjZNvm0J46pFQ&s",
+        features: [
+          "Targeted Google Ads campaign",
+          "Optimized ads for maximum reach and conversions",
+        ],
+        challenge: "Ineffective online advertising and low lead generation.",
+        solution:
+          "Managed a targeted Google Ads campaign, optimizing ads for maximum reach and conversions.",
+        result: "30% increase in leads and better ad performance.",
+        technologiesUsed: "Google Ads, Google Analytics, Keyword Research Tools",
+      },
+      {
+        title: "Instagram Campaign for PureVibe Supplements",
+        category: "Social Media Marketing",
+        description:
+          "PureVibe Supplements had minimal brand visibility on Instagram, which hindered their ability to connect with potential customers. The brand lacked a social media strategy that could drive engagement and promote their products effectively.",
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsPow6UFHtIMa1u_1WQ3fo82O5xXAnEfJtoA&s",
+        features: ["Influencer partnerships", "Visually appealing content"],
+        challenge: "Lack of brand exposure on social media.",
+        solution:
+          "Launched an engaging Instagram campaign that used influencer partnerships and visually appealing content to boost brand visibility.",
+        result: "Increased followers, engagement, and brand awareness.",
+        technologiesUsed:
+          "Instagram Ads, Influencer Partnerships, Analytics Tools",
+      },
+      {
+        title: "Explainer Video for CleanTech Solutions",
+        category: "Video Marketing & Branding",
+        description:
+          "CleanTech Solutions was having trouble explaining their complex range of services to potential clients. Their website lacked clarity, which led to confusion and a low conversion rate.",
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRh_lcabBw83Z0WlosNURPvwmAJ0p3_kp0eQ&s",
+        features: ["Simplified offerings", "Attracted more leads"],
+        challenge:
+          "Difficulty explaining complex services to potential customers.",
+        solution:
+          "Produced an engaging explainer video that simplified CleanTech Solutions’ offerings and attracted more leads.",
+        result: "Increased conversions and enhanced brand awareness.",
+        technologiesUsed:
+          "Adobe Premiere Pro, After Effects, Video Hosting Platforms",
+      },
+      {
+        title: "Promotional Video for UrbanVibes Clothing",
+        category: "Video Marketing & Branding",
+        description:
+          "UrbanVibes Clothing had low engagement on their social media platforms, particularly Instagram. Their marketing efforts lacked a dynamic approach to attracting followers and engaging with their audience.",
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDYPzGQWOrfy0Uo-aN3RFQ3TQm8jCtH7rJOw&s",
+        features: ["Dynamic promotional video", "Showcased latest clothing line"],
+        challenge: "Low social media engagement.",
+        solution:
+          "Created a dynamic promotional video showcasing UrbanVibes’ latest clothing line, driving social media interaction.",
+        result: "Boosted product sales and social media engagement.",
+        technologiesUsed:
+          "Adobe Premiere Pro, Final Cut Pro, Social Media Marketing",
+      },
+    ];
+    let selectedCategory = 'All'; // Show all projects
 
-// Function to generate cards dynamically
-function generatePortfolioCards() {
-  const container = document.getElementById("portfolioCardsContainer");
-  projects.forEach((project) => {
-    const card = document.createElement("div");
-    card.classList.add("relative", "bg-white", "rounded-xl", "shadow-lg", "hover:shadow-xl", "transition", "duration-300", "cursor-pointer");
-    card.innerHTML = `
-      <img src="${project.imageUrl}" alt="${project.title}" class="w-full h-48 object-cover rounded-t-xl">
+    function generatePortfolioCards() {
+      const container = document.getElementById("portfolioCardsContainer");
+      const viewAllBtn = document.getElementById("viewAllBtn");
+
+      container.innerHTML = ''; // Clear existing cards
+
+      // Show all projects, no filtering by category
+      const filteredProjects = projects;
+
+      filteredProjects.forEach(project => {
+        const card = document.createElement("div");
+        card.classList.add("relative", "bg-white", "rounded-xl", "shadow-lg", "hover:shadow-xl", "transition", "duration-300", "cursor-pointer");
+        card.innerHTML = `
+      <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover rounded-t-xl">
       <div class="p-6 flex flex-col justify-between">
-        <div>
-          <span class="text-[#1bce8c] font-semibold block mb-3">${project.category}</span>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">${project.title}</h3>
-          <p class="text-gray-600 mb-3">${project.description} <button class="text-[#1bce8c] font-bold text-xl">.....</button></p>
-        </div>
-        <code class="text-gray-600 text-sm mt-3">Technologies:<br><span class="text-[#1bce8c] font-semibold">${project.technologies}</span></code>
+        <span class="text-[#1bce8c] font-semibold block mb-3">${project.category}</span>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">${project.title}</h3>
+        <p class="text-gray-600 mb-3">${project.description} <button class="text-[#1bce8c] font-bold text-xl">.....</button></p>
+        <code class="text-gray-600 text-sm mt-3">Technologies:<br><span class="text-[#1bce8c] font-semibold">${project.technologiesUsed}</span></code>
       </div>
     `;
-    card.addEventListener("click", () => openModal(project));
-    container.appendChild(card);
-  });
-}
+        card.addEventListener("click", () => openModal(project));
+        container.appendChild(card);
+      });
+    }
 
-// Function to open the modal with project details
-function openModal(project) {
-  document.getElementById("modalTitle").textContent = project.title;
-  document.getElementById("modalDescription").textContent = project.description;
-  document.getElementById("modalTechnologies").textContent = project.technologies;
-  document.getElementById("portfolioModal").classList.remove("hidden");
-}
+    // Open the modal when a project card is clicked
+    function openModal(project) {
+      document.getElementById("modalTitle").textContent = project.title;
+      document.getElementById("modalDescription").textContent = project.description;
 
-// Function to close the modal
-function closeModal() {
-  document.getElementById("portfolioModal").classList.add("hidden");
-}
+      const featureList = document.getElementById("featureLi");
+      featureList.innerHTML = "";
+      project.features.forEach(feature => {
+        const listItem = document.createElement("li");
+        listItem.textContent = feature;
+        featureList.appendChild(listItem);
+      });
 
-// Event listener for closing the modal
-document.getElementById("closeModal").addEventListener("click", closeModal);
+      document.getElementById("modalChallenge").textContent = project.challenge;
+      document.getElementById("modalSolution").textContent = project.solution;
+      document.getElementById("modalResult").textContent = project.result;
+      document.getElementById("modalTechnologies").textContent = project.technologiesUsed;
 
-// Close modal when clicking outside
-document.getElementById("portfolioModal").addEventListener("click", function(e) {
-  if (e.target === document.getElementById("portfolioModal")) {
-    closeModal();
-  }
-});
+      document.getElementById("portfolioModal").classList.remove("hidden");
+    }
 
-// Initialize the portfolio cards
-generatePortfolioCards();
-</script>
+    // Close the modal when clicked outside or on the close button
+    function closeModal() {
+      document.getElementById("portfolioModal").classList.add("hidden");
+    }
+
+    document.getElementById("closeModal").addEventListener("click", closeModal);
+
+    document.getElementById("portfolioModal").addEventListener("click", function (e) {
+      if (e.target === document.getElementById("portfolioModal")) {
+        closeModal();
+      }
+    });
+
+    // Generate portfolio cards when the page loads
+    generatePortfolioCards();
+
+
+    // Testimonial Logic
+
+    // Testimonials Data
+    const testimonials = [
+      {
+        name: "Emily R.",
+        role: "CEO, LearnSphere Inc.",
+        content:
+          "We needed a high-performing, SEO-friendly website for our education platform, and they delivered exactly what we envisioned. The new design has significantly boosted engagement and trust among our users.",
+        image:
+          "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80",
+        category: "Web Development",
+      },
+      {
+        name: "Jason T.",
+        role: "Co-Founder, EcoVolt Systems",
+        content:
+          "Their team built a robust website for our renewable energy solutions company. It’s sleek, responsive, and showcases our services perfectly. Couldn’t be happier!",
+        image:
+          "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80",
+        category: "Web Development",
+      },
+      {
+        name: "Sarah K.",
+        role: "Owner, HandyNest",
+        content:
+          "We were looking for an easy-to-use mobile app for our home services platform, and they exceeded our expectations. The app runs smoothly on both iOS and Android, and our customers are loving it.",
+        image:
+          "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&q=80",
+        category: "Mobile App Development",
+      },
+      {
+        name: "David M.",
+        role: "CTO, RideWave Rentals",
+        content:
+          "The app they created for our bike rental business is intuitive and feature-rich. It’s helped us improve bookings and deliver a better customer experience.",
+        image:
+          "https://media.istockphoto.com/id/1476171646/photo/young-woman-ready-for-job-business-concept.jpg?s=612x612&w=0&k=20&c=DaYoIWA0PemBp_gwRflBhZH193puk3z-chb7N12adfY=",
+        category: "Mobile App Development",
+      },
+      {
+        name: "Lisa P.",
+        role: "Founder, RadiantGlow Skincare",
+        content:
+          "Their team launched a stunning Shopify store for our skincare brand, and it’s been a game-changer. Sales have been consistently growing since day one!",
+        image:
+          "https://www.shutterstock.com/image-photo/confident-smiling-middle-aged-business-600nw-2451544833.jpg",
+        category: "E-Commerce Solutions",
+      },
+      {
+        name: "Ryan S.",
+        role: "Manager, HavenLiving Interiors",
+        content:
+          "Our online furniture store needed an overhaul, and they delivered a platform that’s fast, secure, and optimized for sales. It’s a huge win for our business.",
+        image:
+          "https://www.shutterstock.com/image-photo/headshot-smiling-handsome-hindu-man-260nw-2115297203.jpg",
+        category: "E-Commerce Solutions",
+      },
+      {
+        name: "Olivia W.",
+        role: "Marketing Director, UrbanScape Designs",
+        content:
+          "Thanks to their SEO expertise, our website now ranks on the first page for several competitive keywords. We’ve seen a 40% increase in organic traffic!",
+        image:
+          "https://img.freepik.com/free-photo/portrait-businesswoman-window-2_1262-1491.jpg",
+        category: "SEO & Digital Marketing",
+      },
+      {
+        name: "Brian L.",
+        role: "Owner, FlexPro Fitness",
+        content:
+          "Their social media strategy and ad management have given us the exposure we needed. Leads are pouring in, and we’re thrilled with the results.",
+        image:
+          "https://i.pinimg.com/originals/37/4c/c0/374cc0b39ee69f4f2b3eb29de7aea684.jpg",
+        category: "SEO & Digital Marketing",
+      },
+      {
+        name: "Natalie H.",
+        role: "Product Manager, StreamView Media",
+        content:
+          "Our app’s new design is a hit with our users! It’s intuitive, visually stunning, and has significantly improved retention rates.",
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmtFvVKz3jmx8wSX7U5WiK-g6tN7pVr4lkCA&s",
+        category: "UI/UX Design",
+      },
+      {
+        name: "Kevin D.",
+        role: "CEO, BistroCraft",
+        content:
+          "They redesigned our website with a clean, modern look, making it much easier for customers to navigate. The results have been fantastic.",
+        image:
+          "https://www.shutterstock.com/image-photo/headshot-satisfied-cheerful-handsome-man-260nw-793117360.jpg",
+        category: "UI/UX Design",
+      },
+      {
+        name: "Sophia G.",
+        role: "Owner, LuxeNest Decor",
+        content:
+          "Our website’s loading time was a major issue, but after their optimization, it’s blazing fast. The improvement in user experience is incredible.",
+        image:
+          "https://st4.depositphotos.com/4678277/28917/i/450/depositphotos_289173464-stock-photo-close-up-photo-amazing-he.jpg",
+        category: "Performance Optimization",
+      },
+      {
+        name: "Mark P.",
+        role: "Founder, AutoNext",
+        content:
+          "They streamlined our site’s performance, and the difference is clear. Both our traffic and conversions have seen a noticeable boost.",
+        image:
+          "https://t4.ftcdn.net/jpg/02/19/63/31/360_F_219633151_BW6TD8D1EA9OqZu4JgdmeJGg4JBaiAHj.jpg",
+        category: "Performance Optimization",
+      },
+      {
+        name: "Laura C.",
+        role: "Operations Manager, FreshFields Agriculture",
+        content:
+          "Their custom software solution has completely transformed our supply chain operations. It’s efficient, reliable, and easy to use.",
+        image:
+          "https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ=",
+        category: "Custom Software Solutions",
+      },
+      {
+        name: "Ethan J.",
+        role: "Director, PrimeTrack Logistics",
+        content:
+          "We had a complex workflow issue that required a unique solution, and they nailed it. The software has saved us countless hours and improved productivity.",
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjDGMp734S91sDuUFqL51_xRTXS15iiRoHew&s",
+        category: "Custom Software Solutions",
+      },
+    ];
+
+    // const categories = [
+    //     "Web Development",
+    //     "Mobile App Development",
+    //     "E-Commerce Solutions",
+    //     "SEO & Digital Marketing",
+    //     "Performance Optimization",
+    //     "UI/UX Design",
+    // ];
+
+    // const selectedCategory = null;
+
+    // Handle Category Click
+    // const handleCategoryClick = (category) => {
+    //     // You can filter testimonials based on selected category if needed
+    //     console.log("Category clicked:", category);
+    // };
+
+    // Handle View All Click
+    // const handleViewAllClick = () => {
+    //     // Reset to show all testimonials
+    //     console.log("View All clicked");
+    // };
+
+    // Render Categories
+    // const categoryContainer = document.getElementById("categories");
+    // categories.forEach((category) => {
+    //     const categoryElement = document.createElement("span");
+    //     categoryElement.className =
+    //         "bg-white mx-auto w-fit relative leading-8 no-underline group mt-6 text-gray-600 hover:text-emerald-500 hover:font-bold font-semibold translate-y-0 cursor-pointer duration-150 transition scale-95";
+    //     categoryElement.innerHTML = `<span class="text-md font-bold">${category}</span>
+    //         <span class="absolute bottom-[-0.25rem] right-0 h-[2px] w-0 bg-emerald-500 rounded transition-all duration-400 ease-linear group-hover:w-full group-hover:left-0"></span>`;
+    //     categoryElement.onclick = () => handleCategoryClick(category);
+    //     categoryContainer.appendChild(categoryElement);
+    // });
+
+    // Render Testimonial Cards
+    const swiperWrapper = document.getElementById("swiper-wrapper");
+    testimonials.forEach((testimonial) => {
+      const swiperSlide = document.createElement("div");
+      swiperSlide.className = "swiper-slide";
+      swiperSlide.innerHTML = `        
+                <section class="bg-white">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="bg-gray-50 rounded-xl p-3 sm:p-6 h-full sm:h-[21rem] mb-2 shadow-lg">
+                            <div class="flex items-center mb-4">
+                                ${[...Array(5)].map(() =>
+        `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-yellow-400 ">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                </svg>
+                `).join("")}
+                            </div>
+                            <p class="text-gray-600 text-base pt-3 pb-6">${testimonial.content}</p>
+                            <div class="flex items-center absolute bottom-10 pt-3">
+                                <img src="${testimonial.image}" alt="${testimonial.name}" class="w-12 h-12 rounded-full object-cover mr-4">
+                                <div>
+                                    <code class="font-bold text-gray-900 text-base">${testimonial.name}</code>
+                                    <div><code class="text-gray-400 font-semibold text-sm">${testimonial.role}</code></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section> `;
+      swiperWrapper.appendChild(swiperSlide);
+    });
+
+    const swiper = new Swiper('.swiper-container', {
+      spaceBetween: 30,
+      centeredSlides: true,
+      loop: true,
+      autoplay: {
+        delay: 4500,
+        disableOnInteraction: true,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+        },
+        740: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3,
+        },
+      },
+    });
+
+    // Ensure autoplay stops when hovering
+    const swiperContainer = document.querySelector('.swiper-container');
+
+    swiperContainer.addEventListener('mouseenter', () => {
+      swiper.autoplay.stop(); // Stop autoplay
+    });
+
+    swiperContainer.addEventListener('mouseleave', () => {
+      swiper.autoplay.start(); // Resume autoplay
+    });
+
+
+  </script>
 </body>
 
 </html>

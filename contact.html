@@ -9,7 +9,90 @@
 </head>
 
 <body class="bg-white">
+    <!-- Navbar -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-sm z-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="/">
+                        <span class="text-5xl font-bold cursor-pointer text-primary">
+                            <img src="assets/images/logo.png" class="mt-2 h-auto w-20 object-cover" />
+                        </span>
+                    </a>
+                </div>
 
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/"
+                        class="text-gray-400 font-bold hover:text-[#1bce8c] transition hover:-translate-y-1 duration-300">Home</a>
+                    <a href="/about.html"
+                        class="text-gray-400 font-bold hover:text-[#1bce8c] transition hover:-translate-y-1 duration-300">About</a>
+                    <a href="/services.html"
+                        class="text-gray-400 font-bold hover:text-[#1bce8c] transition hover:-translate-y-1 duration-300">Services</a>
+                    <a href="/portfolio.html"
+                        class="text-gray-400 font-bold hover:text-[#1bce8c] transition hover:-translate-y-1 duration-300">Portfolio</a>
+                    <a href="/blog.html"
+                        class="text-gray-400 font-bold hover:text-[#1bce8c] transition hover:-translate-y-1 duration-300">Blogs</a>
+                    <a href="/careers.html"
+                        class="text-gray-400 font-bold hover:text-[#1bce8c] transition hover:-translate-y-1 duration-300">Careers</a>
+
+                    <a href="/contact.html">
+                        <button type="submit"
+                            class="flex justify-center gap-2 items-center mx-auto shadow-xl text-lg text-white bg-[#1bce8c] backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-white hover:text-[#1bce8c] font-bold before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-none rounded-full group">
+                            Get in touch
+                            <svg class="w-8 h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-[#1bce8c] ease-linear duration-300 rounded-full border border-gray-50 group-hover:border-none p-2 rotate-45"
+                                viewBox="0 0 16 19">
+                                <path
+                                    d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+                                    class="fill-gray-50 group-hover:fill-[#1bce8c]" />
+                            </svg>
+                        </button>
+                    </a>
+                </div>
+
+                <!-- Hamburger Menu (for mobile) -->
+                <button id="hamburgerBtn" class="md:hidden flex text-gray-700">
+                    <img id="hamburgerIcon" src="assets/images/icons/menu.png" class="w-6" alt="Hamburger Menu">
+                    <span id="closeIcon" class="hidden w-12 text-xl text-black font-bold">X</span>
+                </button>
+
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default, shown when hamburger is clicked) -->
+        <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 bg-white">
+                <a href="/"
+                    class="block px-3 py-2 text-primary font-semibold hover:text-[#1bce8c]  transition duration-300">Home</a>
+                <a href="/about.html"
+                    class="block px-3 py-2 text-gray-700 font-semibold hover:text-[#1bce8c] transition duration-300">About</a>
+                <a href="/services.html"
+                    class="block px-3 py-2 text-gray-700 font-semibold hover:text-[#1bce8c] transition duration-300">Services</a>
+                <a href="/work.html"
+                    class="block px-3 py-2 text-gray-700 font-semibold hover:text-[#1bce8c] transition duration-300">Portfolio</a>
+                <a href="/blog.html"
+                    class="block px-3 py-2 text-gray-700 font-semibold hover:text-[#1bce8c] transition duration-300">Blogs</a>
+                <a href="/careers.html"
+                    class="block px-3 py-2 text-gray-700 font-semibold hover:text-[#1bce8c] transition duration-300">Careers</a>
+
+                <div class="px-3 py-2">
+                    <a href="/contact.html">
+                        <button type="submit"
+                            class="flex justify-center gap-2 items-center mx-auto shadow-xl text-lg text-white bg-[#1bce8c] backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-white hover:text-[#1bce8c] font-bold before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group">
+                            Get in touch
+                            <svg class="w-8 h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-[#1bce8c] ease-linear duration-300 rounded-full border border-gray-50 group-hover:border-none p-2 rotate-45"
+                                viewBox="0 0 16 19">
+                                <path
+                                    d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+                                    class="fill-gray-50 group-hover:fill-[#1bce8c]" />
+                            </svg>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
     <!-- Contact US -->
     <main class="bg-white">
         <section class="relative bg-gradient-to-br from-gray-50 to-green-50 pt-10">

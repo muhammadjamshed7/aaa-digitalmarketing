@@ -1,18 +1,35 @@
-
-
 // Add menu toggle logic
 const hamburgerBtn = document.getElementById("hamburgerBtn");
 const mobileMenu = document.getElementById("mobileMenu");
 const closeIcon = document.getElementById("closeIcon");
 const hamburgerIcon = document.getElementById("hamburgerIcon");
 
+// Open menu and show close icon
 hamburgerBtn.addEventListener("click", () => {
   const isOpen = mobileMenu.classList.contains("hidden");
 
   if (isOpen) {
     mobileMenu.classList.remove("hidden");
-    hamburgerIcon.classList.add("hidden");
+    hamburgerIcon.classList.add("hidden"); // Hide hamburger icon
+    closeIcon.classList.remove("hidden"); // Show close icon
   }
+});
+
+// Close menu and show hamburger icon when clicked outside the mobile menu
+document.addEventListener("click", (event) => {
+  if (
+    !mobileMenu.contains(event.target) &&
+    !hamburgerBtn.contains(event.target)
+  ) {
+    mobileMenu.classList.add("hidden");
+    hamburgerIcon.classList.remove("hidden"); // Show hamburger icon
+    closeIcon.classList.add("hidden"); // Hide close icon
+  }
+});
+
+// Prevent closing the menu when clicking inside the menu
+mobileMenu.addEventListener("click", (event) => {
+  event.stopPropagation();
 });
 
 // You can add this JavaScript if you'd like to handle clicks or hover effects
@@ -21,8 +38,6 @@ const button = document.querySelector("button");
 button.addEventListener("click", () => {
   console.log("Button Clicked");
 });
-
-
 
 // Add Career form validation logic
 document
@@ -123,6 +138,9 @@ document
     }
   });
 
+
+  
+
 // Count-Up Function
 function countUp(element, targetValue, duration) {
   let startValue = 0;
@@ -165,5 +183,3 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(counter);
   });
 });
-
-
