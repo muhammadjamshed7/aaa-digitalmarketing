@@ -158,7 +158,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolioCardsContainer"></div>
 
     <!-- View All button (hidden by default) -->
-    <div class="">
+    <div class="text-center">
 
       <a href="/portfolio.html" id="viewAllBtn"
         class="my-8 px-4 py-3 relative inline-flex items-center justify-center text-base font-medium tracking-wide cursor-pointer transition-all duration-500 ease-in-out rounded-lg text-[#1bce8c] bg-transparent border-2 border-[#1bce8c] hover:text-white hover:shadow-[inset_0_-100px_0_0_#1bce8c] px-5 py-2 group">
@@ -169,7 +169,7 @@
   </section>
 
   <!-- Modal Dialog -->
-  <div id="portfolioModal" class="fixed z-30 inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center hidden">
+  <section id="portfolioModal" class="fixed z-30 inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center hidden">
     <div class="bg-white p-8 rounded-lg w-11/12 md:w-1/2 relative">
       <button id="closeModal" class="absolute top-4 right-4 text-[#1bce8c] font-bold text-2xl">X</button>
       <div>
@@ -186,7 +186,7 @@
         <code id="modalTechnologies" class="text-[#1bce8c] font-bold text-lg"></code>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- Testimonial Section -->
   <main class="mx-2 sm:mx-10 py-7 rounded-2xl bg-cover relative">
@@ -598,7 +598,7 @@
         li3: "Product Demos & Tutorials",
         li4: "Video Ads & Social Media Clips",
         li5: "Video SEO",
-        llink: 'servicespage/servbar6.html',
+        link: 'servicespage/servbar6.html',
       },
       {
         icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -878,7 +878,7 @@
 
       const filteredProjects = projects.filter(project => project.category === selectedCategory);
 
-      // Highlight the selected category in red
+      // Highlight the selected category in green
       Array.from(categoryButtons).forEach(button => {
         if (button.textContent === selectedCategory) {
           button.style.color = 'green'; // Highlight the selected category
@@ -887,29 +887,30 @@
         }
       });
 
-      // Show the "View All" button if category is not 'All'
-      if (selectedCategory !== 'All') {
+      // Show the "View All" button if category is not 'Web Development'
+      if (selectedCategory !== 'Web Development') {
         viewAllBtn.style.display = 'inline-block'; // Show "View All" button
       } else {
-        viewAllBtn.style.display = 'none'; // Hide the "View All" button when 'All' is selected
+        viewAllBtn.style.display = 'none'; // Hide the "View All" button when 'Web Development' is selected
       }
 
       filteredProjects.forEach(project => {
         const card = document.createElement("div");
         card.classList.add("relative", "bg-white", "rounded-xl", "shadow-lg", "hover:shadow-xl", "transition", "duration-300", "cursor-pointer");
         card.innerHTML = `
-            <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover rounded-t-xl">
-            <div class="p-6 flex flex-col justify-between">
-                <span class="text-[#1bce8c] font-semibold block mb-3">${project.category}</span>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">${project.title}</h3>
-                <p class="text-gray-600 mb-3">${project.description} <button class="text-[#1bce8c] font-bold text-xl">.....</button></p>
-                <code class="text-gray-600 text-sm mt-3">Technologies:<br><span class="text-[#1bce8c] font-semibold">${project.technologiesUsed}</span></code>
-            </div>
-        `;
+        <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover rounded-t-xl">
+        <div class="p-6 flex flex-col justify-between">
+            <span class="text-[#1bce8c] font-semibold block mb-3">${project.category}</span>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">${project.title}</h3>
+            <p class="text-gray-600 mb-3">${project.description} <button class="text-[#1bce8c] font-bold text-xl">.....</button></p>
+            <code class="text-gray-600 text-sm mt-3">Technologies:<br><span class="text-[#1bce8c] font-semibold">${project.technologiesUsed}</span></code>
+        </div>
+    `;
         card.addEventListener("click", () => openModal(project));
         container.appendChild(card);
       });
     }
+
 
     // Open the modal when a project card is clicked
     function openModal(project) {
@@ -960,30 +961,62 @@
       generatePortfolioCards();
     });
 
-    // Function to create category buttons dynamically (if not already in HTML)
+    // Function to create category buttons dynamically
     const categoryContainer = document.getElementById("categoryButtonsContainer");
-    const categories = ['Web Development',
-      'Mobile App Development',
-      'E-Commerce Solutions',
-      'Digital Marketing & SEO',
-      'Social Media Marketing',
-      'Video Marketing & Branding',
-
-    ]; // Define available categories
+    const categories = ['Web Development', 'Mobile App Development', 'E-Commerce Solutions', 'Digital Marketing & SEO', 'Social Media Marketing', 'Video Marketing & Branding']; // Define available categories
 
     categories.forEach(category => {
-      const button = document.createElement("button");
+      const button = document.createElement("div");
       button.textContent = category;
-      button.classList.add("category-btn", "py-1", "px-2", "rounded-full", "border", "m-2", "cursor-pointer");
-      button.addEventListener("click", () => handleCategoryClick(category));
+
+      // Add styling similar to the original example
+      button.classList.add(
+        "category",
+        "bg-white",
+        "rounded-2xl",
+        "shadow-md",
+        "p-1",
+        "sm:p-3",
+        "text-gray-500",
+        "hover:text-emerald-500",
+        "hover:font-bold",
+        "font-semibold",
+        "translate-y-0",
+        "cursor-pointer",
+        "hover:shadow-xl",
+        "duration-500",
+        "transition",
+        "hover:scale-100",
+        "scale-95"
+      );
+
+      // Add event listener for category click
+      button.addEventListener("click", () => handleCategoryClick(category, button));
+
       categoryContainer.appendChild(button);
     });
+
+    // Handle category click to filter projects and change selected button's color to red
+    function handleCategoryClick(category, selectedButton) {
+      selectedCategory = category;
+      generatePortfolioCards();
+
+      // Reset the color of all category buttons
+      const categoryButtons = document.querySelectorAll(".category");
+      categoryButtons.forEach(button => {
+        button.classList.remove("text-green-400", "font-bold"); // Remove red and bold from all buttons
+      });
+
+      // Set the color of the selected button to red and make it bold
+      selectedButton.classList.add("text-green-400", "font-bold");
+    }
+
 
   </script>
 
 
-<script>
-  function countUp(element, targetValue, duration) {
+  <script>
+    function countUp(element, targetValue, duration) {
       let startValue = 0;
       let range = targetValue - startValue;
       let stepTime = Math.abs(Math.floor(duration / range));
@@ -992,212 +1025,212 @@
       element.style.visibility = "visible"; // Make the counter visible when animation starts
 
       let timer = setInterval(() => {
-          current += 1;
-          element.innerHTML = current + (element.dataset.suffix || ""); // Update the counter value
-          if (current === targetValue) {
-              clearInterval(timer);
-          }
+        current += 1;
+        element.innerHTML = current + (element.dataset.suffix || ""); // Update the counter value
+        if (current === targetValue) {
+          clearInterval(timer);
+        }
       }, stepTime);
-  }
+    }
 
-  // Detect when the element is in the viewport
-  document.addEventListener("DOMContentLoaded", () => {
+    // Detect when the element is in the viewport
+    document.addEventListener("DOMContentLoaded", () => {
       const counters = document.querySelectorAll(".countup");
 
       const observer = new IntersectionObserver(
-          (entries) => {
-              entries.forEach((entry) => {
-                  if (entry.isIntersecting) {
-                      const counter = entry.target;
-                      const targetValue = parseInt(counter.dataset.target);
-                      const duration = 2000; // Duration for the count-up (in milliseconds)
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const counter = entry.target;
+              const targetValue = parseInt(counter.dataset.target);
+              const duration = 2000; // Duration for the count-up (in milliseconds)
 
-                      countUp(counter, targetValue, duration);
-                      observer.unobserve(counter);
-                  }
-              });
-          },
-          { threshold: 0.5 }
+              countUp(counter, targetValue, duration);
+              observer.unobserve(counter);
+            }
+          });
+        },
+        { threshold: 0.5 }
       );
 
       counters.forEach((counter) => {
-          observer.observe(counter);
+        observer.observe(counter);
       });
-  });
+    });
 
 
 
 
-  // Testimonial Logic
+    // Testimonial Logic
 
-  // Testimonials Data
-  const testimonials = [
+    // Testimonials Data
+    const testimonials = [
       {
-          name: "Emily R.",
-          role: "CEO, LearnSphere Inc.",
-          content:
-              "We needed a high-performing, SEO-friendly website for our education platform, and they delivered exactly what we envisioned. The new design has significantly boosted engagement and trust among our users.",
-          image:
-              "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80",
-          category: "Web Development",
+        name: "Emily R.",
+        role: "CEO, LearnSphere Inc.",
+        content:
+          "We needed a high-performing, SEO-friendly website for our education platform, and they delivered exactly what we envisioned. The new design has significantly boosted engagement and trust among our users.",
+        image:
+          "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80",
+        category: "Web Development",
       },
       {
-          name: "Jason T.",
-          role: "Co-Founder, EcoVolt Systems",
-          content:
-              "Their team built a robust website for our renewable energy solutions company. It’s sleek, responsive, and showcases our services perfectly. Couldn’t be happier!",
-          image:
-              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80",
-          category: "Web Development",
+        name: "Jason T.",
+        role: "Co-Founder, EcoVolt Systems",
+        content:
+          "Their team built a robust website for our renewable energy solutions company. It’s sleek, responsive, and showcases our services perfectly. Couldn’t be happier!",
+        image:
+          "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80",
+        category: "Web Development",
       },
       {
-          name: "Sarah K.",
-          role: "Owner, HandyNest",
-          content:
-              "We were looking for an easy-to-use mobile app for our home services platform, and they exceeded our expectations. The app runs smoothly on both iOS and Android, and our customers are loving it.",
-          image:
-              "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&q=80",
-          category: "Mobile App Development",
+        name: "Sarah K.",
+        role: "Owner, HandyNest",
+        content:
+          "We were looking for an easy-to-use mobile app for our home services platform, and they exceeded our expectations. The app runs smoothly on both iOS and Android, and our customers are loving it.",
+        image:
+          "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&q=80",
+        category: "Mobile App Development",
       },
       {
-          name: "David M.",
-          role: "CTO, RideWave Rentals",
-          content:
-              "The app they created for our bike rental business is intuitive and feature-rich. It’s helped us improve bookings and deliver a better customer experience.",
-          image:
-              "https://media.istockphoto.com/id/1476171646/photo/young-woman-ready-for-job-business-concept.jpg?s=612x612&w=0&k=20&c=DaYoIWA0PemBp_gwRflBhZH193puk3z-chb7N12adfY=",
-          category: "Mobile App Development",
+        name: "David M.",
+        role: "CTO, RideWave Rentals",
+        content:
+          "The app they created for our bike rental business is intuitive and feature-rich. It’s helped us improve bookings and deliver a better customer experience.",
+        image:
+          "https://media.istockphoto.com/id/1476171646/photo/young-woman-ready-for-job-business-concept.jpg?s=612x612&w=0&k=20&c=DaYoIWA0PemBp_gwRflBhZH193puk3z-chb7N12adfY=",
+        category: "Mobile App Development",
       },
       {
-          name: "Lisa P.",
-          role: "Founder, RadiantGlow Skincare",
-          content:
-              "Their team launched a stunning Shopify store for our skincare brand, and it’s been a game-changer. Sales have been consistently growing since day one!",
-          image:
-              "https://www.shutterstock.com/image-photo/confident-smiling-middle-aged-business-600nw-2451544833.jpg",
-          category: "E-Commerce Solutions",
+        name: "Lisa P.",
+        role: "Founder, RadiantGlow Skincare",
+        content:
+          "Their team launched a stunning Shopify store for our skincare brand, and it’s been a game-changer. Sales have been consistently growing since day one!",
+        image:
+          "https://www.shutterstock.com/image-photo/confident-smiling-middle-aged-business-600nw-2451544833.jpg",
+        category: "E-Commerce Solutions",
       },
       {
-          name: "Ryan S.",
-          role: "Manager, HavenLiving Interiors",
-          content:
-              "Our online furniture store needed an overhaul, and they delivered a platform that’s fast, secure, and optimized for sales. It’s a huge win for our business.",
-          image:
-              "https://www.shutterstock.com/image-photo/headshot-smiling-handsome-hindu-man-260nw-2115297203.jpg",
-          category: "E-Commerce Solutions",
+        name: "Ryan S.",
+        role: "Manager, HavenLiving Interiors",
+        content:
+          "Our online furniture store needed an overhaul, and they delivered a platform that’s fast, secure, and optimized for sales. It’s a huge win for our business.",
+        image:
+          "https://www.shutterstock.com/image-photo/headshot-smiling-handsome-hindu-man-260nw-2115297203.jpg",
+        category: "E-Commerce Solutions",
       },
       {
-          name: "Olivia W.",
-          role: "Marketing Director, UrbanScape Designs",
-          content:
-              "Thanks to their SEO expertise, our website now ranks on the first page for several competitive keywords. We’ve seen a 40% increase in organic traffic!",
-          image:
-              "https://img.freepik.com/free-photo/portrait-businesswoman-window-2_1262-1491.jpg",
-          category: "SEO & Digital Marketing",
+        name: "Olivia W.",
+        role: "Marketing Director, UrbanScape Designs",
+        content:
+          "Thanks to their SEO expertise, our website now ranks on the first page for several competitive keywords. We’ve seen a 40% increase in organic traffic!",
+        image:
+          "https://img.freepik.com/free-photo/portrait-businesswoman-window-2_1262-1491.jpg",
+        category: "SEO & Digital Marketing",
       },
       {
-          name: "Brian L.",
-          role: "Owner, FlexPro Fitness",
-          content:
-              "Their social media strategy and ad management have given us the exposure we needed. Leads are pouring in, and we’re thrilled with the results.",
-          image:
-              "https://i.pinimg.com/originals/37/4c/c0/374cc0b39ee69f4f2b3eb29de7aea684.jpg",
-          category: "SEO & Digital Marketing",
+        name: "Brian L.",
+        role: "Owner, FlexPro Fitness",
+        content:
+          "Their social media strategy and ad management have given us the exposure we needed. Leads are pouring in, and we’re thrilled with the results.",
+        image:
+          "https://i.pinimg.com/originals/37/4c/c0/374cc0b39ee69f4f2b3eb29de7aea684.jpg",
+        category: "SEO & Digital Marketing",
       },
       {
-          name: "Natalie H.",
-          role: "Product Manager, StreamView Media",
-          content:
-              "Our app’s new design is a hit with our users! It’s intuitive, visually stunning, and has significantly improved retention rates.",
-          image:
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmtFvVKz3jmx8wSX7U5WiK-g6tN7pVr4lkCA&s",
-          category: "UI/UX Design",
+        name: "Natalie H.",
+        role: "Product Manager, StreamView Media",
+        content:
+          "Our app’s new design is a hit with our users! It’s intuitive, visually stunning, and has significantly improved retention rates.",
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmtFvVKz3jmx8wSX7U5WiK-g6tN7pVr4lkCA&s",
+        category: "UI/UX Design",
       },
       {
-          name: "Kevin D.",
-          role: "CEO, BistroCraft",
-          content:
-              "They redesigned our website with a clean, modern look, making it much easier for customers to navigate. The results have been fantastic.",
-          image:
-              "https://www.shutterstock.com/image-photo/headshot-satisfied-cheerful-handsome-man-260nw-793117360.jpg",
-          category: "UI/UX Design",
+        name: "Kevin D.",
+        role: "CEO, BistroCraft",
+        content:
+          "They redesigned our website with a clean, modern look, making it much easier for customers to navigate. The results have been fantastic.",
+        image:
+          "https://www.shutterstock.com/image-photo/headshot-satisfied-cheerful-handsome-man-260nw-793117360.jpg",
+        category: "UI/UX Design",
       },
       {
-          name: "Sophia G.",
-          role: "Owner, LuxeNest Decor",
-          content:
-              "Our website’s loading time was a major issue, but after their optimization, it’s blazing fast. The improvement in user experience is incredible.",
-          image:
-              "https://st4.depositphotos.com/4678277/28917/i/450/depositphotos_289173464-stock-photo-close-up-photo-amazing-he.jpg",
-          category: "Performance Optimization",
+        name: "Sophia G.",
+        role: "Owner, LuxeNest Decor",
+        content:
+          "Our website’s loading time was a major issue, but after their optimization, it’s blazing fast. The improvement in user experience is incredible.",
+        image:
+          "https://st4.depositphotos.com/4678277/28917/i/450/depositphotos_289173464-stock-photo-close-up-photo-amazing-he.jpg",
+        category: "Performance Optimization",
       },
       {
-          name: "Mark P.",
-          role: "Founder, AutoNext",
-          content:
-              "They streamlined our site’s performance, and the difference is clear. Both our traffic and conversions have seen a noticeable boost.",
-          image:
-              "https://t4.ftcdn.net/jpg/02/19/63/31/360_F_219633151_BW6TD8D1EA9OqZu4JgdmeJGg4JBaiAHj.jpg",
-          category: "Performance Optimization",
+        name: "Mark P.",
+        role: "Founder, AutoNext",
+        content:
+          "They streamlined our site’s performance, and the difference is clear. Both our traffic and conversions have seen a noticeable boost.",
+        image:
+          "https://t4.ftcdn.net/jpg/02/19/63/31/360_F_219633151_BW6TD8D1EA9OqZu4JgdmeJGg4JBaiAHj.jpg",
+        category: "Performance Optimization",
       },
       {
-          name: "Laura C.",
-          role: "Operations Manager, FreshFields Agriculture",
-          content:
-              "Their custom software solution has completely transformed our supply chain operations. It’s efficient, reliable, and easy to use.",
-          image:
-              "https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ=",
-          category: "Custom Software Solutions",
+        name: "Laura C.",
+        role: "Operations Manager, FreshFields Agriculture",
+        content:
+          "Their custom software solution has completely transformed our supply chain operations. It’s efficient, reliable, and easy to use.",
+        image:
+          "https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ=",
+        category: "Custom Software Solutions",
       },
       {
-          name: "Ethan J.",
-          role: "Director, PrimeTrack Logistics",
-          content:
-              "We had a complex workflow issue that required a unique solution, and they nailed it. The software has saved us countless hours and improved productivity.",
-          image:
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjDGMp734S91sDuUFqL51_xRTXS15iiRoHew&s",
-          category: "Custom Software Solutions",
+        name: "Ethan J.",
+        role: "Director, PrimeTrack Logistics",
+        content:
+          "We had a complex workflow issue that required a unique solution, and they nailed it. The software has saved us countless hours and improved productivity.",
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjDGMp734S91sDuUFqL51_xRTXS15iiRoHew&s",
+        category: "Custom Software Solutions",
       },
-  ];
+    ];
 
-  // const categories = [
-  //     "Web Development",
-  //     "Mobile App Development",
-  //     "E-Commerce Solutions",
-  //     "SEO & Digital Marketing",
-  //     "Performance Optimization",
-  //     "UI/UX Design",
-  // ];
+    // const categories = [
+    //     "Web Development",
+    //     "Mobile App Development",
+    //     "E-Commerce Solutions",
+    //     "SEO & Digital Marketing",
+    //     "Performance Optimization",
+    //     "UI/UX Design",
+    // ];
 
-  // const selectedCategory = null;
+    // const selectedCategory = null;
 
-  // Handle Category Click
-  // const handleCategoryClick = (category) => {
-  //     // You can filter testimonials based on selected category if needed
-  //     console.log("Category clicked:", category);
-  // };
+    // Handle Category Click
+    // const handleCategoryClick = (category) => {
+    //     // You can filter testimonials based on selected category if needed
+    //     console.log("Category clicked:", category);
+    // };
 
-  // Handle View All Click
-  // const handleViewAllClick = () => {
-  //     // Reset to show all testimonials
-  //     console.log("View All clicked");
-  // };
+    // Handle View All Click
+    // const handleViewAllClick = () => {
+    //     // Reset to show all testimonials
+    //     console.log("View All clicked");
+    // };
 
-  // Render Categories
-  // const categoryContainer = document.getElementById("categories");
-  // categories.forEach((category) => {
-  //     const categoryElement = document.createElement("span");
-  //     categoryElement.className =
-  //         "bg-white mx-auto w-fit relative leading-8 no-underline group mt-6 text-gray-600 hover:text-emerald-500 hover:font-bold font-semibold translate-y-0 cursor-pointer duration-150 transition scale-95";
-  //     categoryElement.innerHTML = `<span class="text-md font-bold">${category}</span>
-  //         <span class="absolute bottom-[-0.25rem] right-0 h-[2px] w-0 bg-emerald-500 rounded transition-all duration-400 ease-linear group-hover:w-full group-hover:left-0"></span>`;
-  //     categoryElement.onclick = () => handleCategoryClick(category);
-  //     categoryContainer.appendChild(categoryElement);
-  // });
+    // Render Categories
+    // const categoryContainer = document.getElementById("categories");
+    // categories.forEach((category) => {
+    //     const categoryElement = document.createElement("span");
+    //     categoryElement.className =
+    //         "bg-white mx-auto w-fit relative leading-8 no-underline group mt-6 text-gray-600 hover:text-emerald-500 hover:font-bold font-semibold translate-y-0 cursor-pointer duration-150 transition scale-95";
+    //     categoryElement.innerHTML = `<span class="text-md font-bold">${category}</span>
+    //         <span class="absolute bottom-[-0.25rem] right-0 h-[2px] w-0 bg-emerald-500 rounded transition-all duration-400 ease-linear group-hover:w-full group-hover:left-0"></span>`;
+    //     categoryElement.onclick = () => handleCategoryClick(category);
+    //     categoryContainer.appendChild(categoryElement);
+    // });
 
-  // Render Testimonial Cards
-  const swiperWrapper = document.getElementById("swiper-wrapper");
-  testimonials.forEach((testimonial) => {
+    // Render Testimonial Cards
+    const swiperWrapper = document.getElementById("swiper-wrapper");
+    testimonials.forEach((testimonial) => {
       const swiperSlide = document.createElement("div");
       swiperSlide.className = "swiper-slide";
       swiperSlide.innerHTML = `        
@@ -1206,7 +1239,7 @@
                   <div class="bg-gray-50 rounded-xl p-3 sm:p-6 h-full sm:h-[21rem] mb-2 shadow-lg">
                       <div class="flex items-center mb-4">
                           ${[...Array(5)].map(() =>
-          `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-yellow-400 ">
+        `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-yellow-400 ">
           <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
           </svg>
           `).join("")}
@@ -1223,49 +1256,49 @@
               </div>
           </section> `;
       swiperWrapper.appendChild(swiperSlide);
-  });
+    });
 
-  const swiper = new Swiper('.swiper-container', {
+    const swiper = new Swiper('.swiper-container', {
       spaceBetween: 30,
       centeredSlides: true,
       loop: true,
       autoplay: {
-          delay: 4500,
-          disableOnInteraction: true,
+        delay: 4500,
+        disableOnInteraction: true,
       },
       pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
+        el: ".swiper-pagination",
+        clickable: true,
       },
       navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
       },
       breakpoints: {
-          320: {
-              slidesPerView: 1,
-          },
-          740: {
-              slidesPerView: 2,
-          },
-          1024: {
-              slidesPerView: 3,
-          },
+        320: {
+          slidesPerView: 1,
+        },
+        740: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3,
+        },
       },
-  });
+    });
 
-  // Ensure autoplay stops when hovering
-  const swiperContainer = document.querySelector('.swiper-container');
+    // Ensure autoplay stops when hovering
+    const swiperContainer = document.querySelector('.swiper-container');
 
-  swiperContainer.addEventListener('mouseenter', () => {
+    swiperContainer.addEventListener('mouseenter', () => {
       swiper.autoplay.stop(); // Stop autoplay
-  });
+    });
 
-  swiperContainer.addEventListener('mouseleave', () => {
+    swiperContainer.addEventListener('mouseleave', () => {
       swiper.autoplay.start(); // Resume autoplay
-  });
+    });
 
-</script>
+  </script>
 
 </body>
 
