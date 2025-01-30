@@ -1,3 +1,5 @@
+
+
 // Add menu toggle logic
 const hamburgerBtn = document.getElementById("hamburgerBtn");
 const mobileMenu = document.getElementById("mobileMenu");
@@ -13,14 +15,12 @@ hamburgerBtn.addEventListener("click", () => {
   }
 });
 
-
 // You can add this JavaScript if you'd like to handle clicks or hover effects
 const button = document.querySelector("button");
 
 button.addEventListener("click", () => {
   console.log("Button Clicked");
 });
-
 
 
 
@@ -83,6 +83,7 @@ document
 
 
 
+
 // add contact form validation logic
 document
   .getElementById("contact-form")
@@ -122,6 +123,47 @@ document
     }
   });
 
+// Count-Up Function
+function countUp(element, targetValue, duration) {
+  let startValue = 0;
+  let range = targetValue - startValue;
+  let stepTime = Math.abs(Math.floor(duration / range));
+  let current = startValue;
 
+  element.style.visibility = "visible"; // Make the counter visible when animation starts
+
+  let timer = setInterval(() => {
+    current += 1;
+    element.innerHTML = current + (element.dataset.suffix || ""); // Update the counter value
+    if (current === targetValue) {
+      clearInterval(timer);
+    }
+  }, stepTime);
+}
+
+// Detect when the element is in the viewport
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".countup");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          const targetValue = parseInt(counter.dataset.target);
+          const duration = 2000; // Duration for the count-up (in milliseconds)
+
+          countUp(counter, targetValue, duration);
+          observer.unobserve(counter);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  counters.forEach((counter) => {
+    observer.observe(counter);
+  });
+});
 
 
